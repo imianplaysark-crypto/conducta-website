@@ -4,63 +4,193 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Conducta — Documentamos la realidad diaria sin filtro y sin guión. Somos la voz de las personas que el mundo ignora." data-i18n-meta="description" />
+  <meta name="theme-color" content="#0B0910" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
-  <title>Conducta</title>
+  <title>Conducta — Miami Nonprofit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=editorial-1" />
 </head>
 <body>
-  <header class="site-header">
-    <a href="#hero" class="brand">
+  <a href="#main" class="skip" data-i18n="a11y.skip">Saltar al contenido</a>
+
+  <header class="site-header" id="site-header">
+    <a href="#hero" class="brand" aria-label="Conducta">
       <img src="nav-logo.png" alt="Conducta" class="brand-logo" />
     </a>
-    <nav class="nav">
+
+    <nav class="nav" aria-label="Primary">
       <a href="#hero" data-i18n="nav.home">Inicio</a>
+      <a href="#about" data-i18n="nav.about">Quiénes Somos</a>
       <a href="#imagenes" data-i18n="nav.images">Imágenes</a>
-      <a href="#donar" data-i18n="nav.donate">Donar</a>
-      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="#blog-teaser" data-i18n="nav.blog">Blog</a>
       <a href="#contacto" data-i18n="nav.contact">Contacto</a>
     </nav>
-    <div class="social-links">
-      <a class="social-ig" href="https://www.instagram.com/conducta_dade/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 00-2.13 1.38A5.9 5.9 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13.67.65 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 002.13-1.38 5.9 5.9 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
-      </a>
-      <a class="social-tt" href="https://www.tiktok.com/@conductadade" target="_blank" rel="noopener" aria-label="TikTok">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.64a8.16 8.16 0 004.77 1.52V6.77a4.85 4.85 0 01-1.84-.08z"/></svg>
-      </a>
-      <a class="social-fb" href="https://www.facebook.com/conducta.dade" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-      </a>
-      <a class="social-yt" href="https://www.youtube.com/@Conductadade" target="_blank" rel="noopener" aria-label="YouTube">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.12C19.55 3.58 12 3.58 12 3.58s-7.55 0-9.4.5A3 3 0 00.5 6.2C0 8.06 0 12 0 12s0 3.94.5 5.8a3 3 0 002.1 2.12c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 002.1-2.12C24 15.94 24 12 24 12s0-3.94-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg>
-      </a>
+
+    <div class="header-right">
+      <div class="social-links">
+        <a class="social-ig" href="https://www.instagram.com/conducta_dade/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 00-2.13 1.38A5.9 5.9 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13.67.65 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 002.13-1.38 5.9 5.9 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+        </a>
+        <a class="social-tt" href="https://www.tiktok.com/@conductadade" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.64a8.16 8.16 0 004.77 1.52V6.77a4.85 4.85 0 01-1.84-.08z"/></svg>
+        </a>
+        <a class="social-fb" href="https://www.facebook.com/conducta.dade" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+        <a class="social-yt" href="https://www.youtube.com/@Conductadade" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.12C19.55 3.58 12 3.58 12 3.58s-7.55 0-9.4.5A3 3 0 00.5 6.2C0 8.06 0 12 0 12s0 3.94.5 5.8a3 3 0 002.1 2.12c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 002.1-2.12C24 15.94 24 12 24 12s0-3.94-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg>
+        </a>
+      </div>
+
+      <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+        <svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#b22234"/><rect y="1.23" width="24" height="1.23" fill="#fff"/><rect y="3.69" width="24" height="1.23" fill="#fff"/><rect y="6.15" width="24" height="1.23" fill="#fff"/><rect y="8.62" width="24" height="1.23" fill="#fff"/><rect y="11.08" width="24" height="1.23" fill="#fff"/><rect y="13.54" width="24" height="1.23" fill="#fff"/><rect width="9.6" height="8.62" fill="#3c3b6e"/></svg>
+        <span>English</span>
+      </button>
+
+      <a href="#donar" class="header-donate" data-i18n="nav.donate">Donar</a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
     </div>
-    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
-      <svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#b22234"/><rect y="1.23" width="24" height="1.23" fill="#fff"/><rect y="3.69" width="24" height="1.23" fill="#fff"/><rect y="6.15" width="24" height="1.23" fill="#fff"/><rect y="8.62" width="24" height="1.23" fill="#fff"/><rect y="11.08" width="24" height="1.23" fill="#fff"/><rect y="13.54" width="24" height="1.23" fill="#fff"/><rect width="9.6" height="8.62" fill="#3c3b6e"/></svg>
-      <span>English</span>
-    </button>
   </header>
 
-  <main>
-    <section id="hero" class="hero">
-      <div class="hero-inner">
-        <img class="hero-logo" src="hero-logo.png" alt="Conducta" />
-        <p class="hero-tag" data-i18n="hero.tag">
-          Documentamos la realidad diaria sin filtro y sin guión.<br />
-          Somos la voz de las personas que el mundo ignora.
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+    </button>
+    <nav class="mobile-nav" aria-label="Mobile">
+      <a href="#hero" data-num="01" data-i18n="nav.home">Inicio</a>
+      <a href="#about" data-num="02" data-i18n="nav.about">Quiénes Somos</a>
+      <a href="#imagenes" data-num="03" data-i18n="nav.images">Imágenes</a>
+      <a href="#donar" data-num="04" data-i18n="nav.donate">Donar</a>
+      <a href="blog.html" data-num="05" data-i18n="nav.blog">Blog</a>
+      <a href="#contacto" data-num="06" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <div class="social-links">
+        <a class="social-ig" href="https://www.instagram.com/conducta_dade/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 00-2.13 1.38A5.9 5.9 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13.67.65 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 002.13-1.38 5.9 5.9 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+        </a>
+        <a class="social-tt" href="https://www.tiktok.com/@conductadade" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.64a8.16 8.16 0 004.77 1.52V6.77a4.85 4.85 0 01-1.84-.08z"/></svg>
+        </a>
+        <a class="social-fb" href="https://www.facebook.com/conducta.dade" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+        <a class="social-yt" href="https://www.youtube.com/@Conductadade" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.12C19.55 3.58 12 3.58 12 3.58s-7.55 0-9.4.5A3 3 0 00.5 6.2C0 8.06 0 12 0 12s0 3.94.5 5.8a3 3 0 002.1 2.12c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 002.1-2.12C24 15.94 24 12 24 12s0-3.94-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg>
+        </a>
+      </div>
+      <a href="mailto:conductaofficial@gmail.com" class="mobile-menu-footer-email">conductaofficial@gmail.com</a>
+    </div>
+  </div>
+
+  <main id="main">
+    <section id="hero" class="hero" aria-labelledby="hero-headline">
+      <div class="hero-grid">
+        <div class="hero-issue reveal">
+          <span class="rule"></span>
+          <span data-i18n="hero.issue">Edición 01 · Miami · 2026</span>
+          <span class="rule"></span>
+        </div>
+
+        <img class="hero-logo reveal" src="hero-logo.png" alt="Conducta" />
+
+        <h1 id="hero-headline" class="hero-headline reveal" data-i18n="hero.headline">
+          Sin filtro. <em>Sin guión.</em> Sin olvido.
+        </h1>
+
+        <p class="hero-lede reveal" data-i18n="hero.lede">
+          Documentamos la realidad diaria de las personas que el mundo ignora — y convertimos cada aporte en comida, abrigo y dignidad en las calles de Miami.
         </p>
-        <a href="#donar" class="btn-primary" data-i18n="hero.cta">Apoya la causa</a>
+
+        <div class="hero-ctas reveal">
+          <a href="#donar" class="btn btn-primary" data-i18n="hero.cta">
+            <span>Apoya la causa</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#about" class="btn btn-ghost" data-i18n="hero.learn">Nuestra misión</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span data-i18n="hero.scroll">Desplaza</span>
       </div>
     </section>
 
-    <section id="imagenes" class="section section-alt">
+    <section id="about" class="section" aria-labelledby="about-title">
       <div class="section-inner">
-        <h2 class="section-title" data-i18n="images.title">Imágenes</h2>
-        <p class="section-sub" data-i18n="images.sub">Momentos que documentan nuestra labor.</p>
-        <div class="image-grid">
+        <header class="section-header reveal">
+          <div class="section-meta">
+            <span class="section-num">N.º 01</span>
+            <span class="section-meta-label" data-i18n="about.eyebrow">Nuestra misión</span>
+          </div>
+          <div class="section-head-body">
+            <h2 id="about-title" class="section-title" data-i18n="about.title">Voces que el mundo prefiere no escuchar.</h2>
+          </div>
+        </header>
+
+        <div class="manifesto-grid">
+          <p class="manifesto-lead reveal" data-i18n="about.lead">
+            Conducta es una organización sin fines de lucro con sede en Miami que apoya a poblaciones vulnerables a través de la asistencia directa y narrativas que dan visibilidad a las comunidades que el mundo prefiere no ver.
+          </p>
+
+          <ul class="pillars" aria-label="Pilares">
+            <li class="pillar reveal">
+              <span class="pillar-num">01</span>
+              <div class="pillar-body">
+                <h3 data-i18n="about.p1.title">Asistencia directa</h3>
+                <p data-i18n="about.p1.text">Distribución de alimentos y recursos esenciales para personas en situación de calle.</p>
+              </div>
+            </li>
+            <li class="pillar reveal">
+              <span class="pillar-num">02</span>
+              <div class="pillar-body">
+                <h3 data-i18n="about.p2.title">Conexión a programas</h3>
+                <p data-i18n="about.p2.text">Acompañamiento hacia programas de ayuda, rehabilitación y reintegración.</p>
+              </div>
+            </li>
+            <li class="pillar reveal">
+              <span class="pillar-num">03</span>
+              <div class="pillar-body">
+                <h3 data-i18n="about.p3.title">Documentación</h3>
+                <p data-i18n="about.p3.text">Trabajo documental que captura historias auténticas, sin filtro y sin guión.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="pullquote-section" aria-labelledby="pullquote">
+      <div class="pullquote-inner">
+        <span class="pullquote-mark" aria-hidden="true">“</span>
+        <p id="pullquote" class="pullquote reveal" data-i18n="pullquote.text">
+          Cada aporte se convierte en <em>comida, abrigo y sonrisas</em>.
+        </p>
+        <div class="pullquote-byline reveal" data-i18n="pullquote.byline">
+          Conducta · Miami
+        </div>
+      </div>
+    </section>
+
+    <section id="imagenes" class="section" aria-labelledby="images-title">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <div class="section-meta">
+            <span class="section-num">N.º 02</span>
+            <span class="section-meta-label" data-i18n="images.eyebrow">Galería</span>
+          </div>
+          <div class="section-head-body">
+            <h2 id="images-title" class="section-title" data-i18n="images.title">Imágenes</h2>
+            <p class="section-sub" data-i18n="images.sub">Momentos que documentan nuestra labor en las calles — crudos, sin montaje, sin filtro.</p>
+          </div>
+        </header>
+
+        <div class="image-grid reveal">
           <figure class="img-tile"><div class="img-placeholder">01</div></figure>
           <figure class="img-tile"><div class="img-placeholder">02</div></figure>
           <figure class="img-tile"><div class="img-placeholder">03</div></figure>
@@ -71,56 +201,155 @@
       </div>
     </section>
 
-    <section id="donar" class="section">
+    <section id="blog-teaser" class="section" aria-labelledby="blog-teaser-title">
       <div class="section-inner">
-        <h2 class="section-title" data-i18n="donate.title">Donar</h2>
-        <p class="section-sub" data-i18n="donate.sub">Cada aporte se convierte en comida, abrigo y sonrisas. El uso de las donaciones se muestra en nuestra sección de blog.</p>
-        <a href="blog.html" class="btn-ghost btn-blog-cta" data-i18n="donate.blogCta">Ver Blog</a>
-        <div class="donate-grid">
-          <div class="donate-card donate-zelle">
-            <div class="donate-brand">
-              <svg class="donate-logo" viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg" aria-label="Zelle">
-                <text x="0" y="35" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900" fill="#6D1ED4" letter-spacing="-0.5">Zelle</text>
-              </svg>
-            </div>
-            <p class="donate-detail">conductaofficial@gmail.com</p>
-            <button class="btn-zelle" data-copy="conductaofficial@gmail.com" data-i18n="donate.copy">Copiar correo</button>
+        <header class="section-header reveal">
+          <div class="section-meta">
+            <span class="section-num">N.º 03</span>
+            <span class="section-meta-label" data-i18n="blog.eyebrow">Últimas historias</span>
           </div>
-          <div class="donate-card donate-paypal">
-            <div class="donate-brand">
-              <svg class="donate-logo" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg" aria-label="PayPal">
-                <text x="0" y="34" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="32" font-style="italic" font-weight="900" letter-spacing="-1.2">
-                  <tspan fill="#0070BA">Pay</tspan><tspan fill="#00B9F1">Pal</tspan>
-                </text>
-              </svg>
-            </div>
-            <p class="donate-note" data-i18n="donate.paypalNote">Puedes usar tarjeta de crédito o débito, sin necesidad de iniciar sesión.</p>
-            <form class="paypal-form" action="https://www.paypal.com/donate" method="post" target="_top">
-              <input type="hidden" name="business" value="conductaofficial@gmail.com" />
-              <input type="hidden" name="no_recurring" value="0" />
-              <input type="hidden" name="item_name" value="Conducta Nonprofit Donation" />
-              <input type="hidden" name="currency_code" value="USD" />
-              <button type="submit" class="btn-paypal" data-i18n="donate.paypal">Donar con PayPal</button>
-            </form>
+          <div class="section-head-body">
+            <h2 id="blog-teaser-title" class="section-title" data-i18n="blog.title">Blog</h2>
+            <p class="section-sub" data-i18n="blog.sub">Crónicas, actualizaciones y el uso transparente de cada donación.</p>
           </div>
+        </header>
+
+        <div id="blog-teaser-posts" class="blog-teaser reveal">
+          <p class="teaser-empty" data-i18n="blog.loading">Cargando publicaciones…</p>
+        </div>
+
+        <div style="margin-top: 3rem; display: flex; justify-content: flex-end;">
+          <a href="blog.html" class="btn btn-accent" data-i18n="blog.viewAll">
+            <span>Ver todas las historias</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="contacto" class="section section-alt">
-      <div class="section-inner contact-inner">
-        <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
-        <p class="contact-text" data-i18n="contact.text">¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.</p>
-        <a class="contact-email" href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a>
+    <section id="donar" class="section" aria-labelledby="donate-title">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <div class="section-meta">
+            <span class="section-num">N.º 04</span>
+            <span class="section-meta-label" data-i18n="donate.eyebrow">Apóyanos</span>
+          </div>
+          <div class="section-head-body">
+            <h2 id="donate-title" class="section-title" data-i18n="donate.title">Donar</h2>
+            <p class="section-sub" data-i18n="donate.sub">Cada aporte se convierte en comida, abrigo y sonrisas. El uso de cada donación se documenta en nuestro blog.</p>
+          </div>
+        </header>
+
+        <div class="donate-grid">
+          <article class="donate-card donate-zelle reveal">
+            <div class="donate-head">
+              <svg class="donate-logo" viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg" aria-label="Zelle">
+                <text x="0" y="35" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900" fill="#B48CF2" letter-spacing="-0.5">Zelle</text>
+              </svg>
+              <span class="donate-label" data-i18n="donate.instant">Instantáneo</span>
+            </div>
+            <h3 class="donate-title" data-i18n="donate.zelleTitle">Enviar por Zelle</h3>
+            <p class="donate-note" data-i18n="donate.zelleNote">Directo desde tu app de banca, sin comisiones.</p>
+            <div class="donate-detail">conductaofficial@gmail.com</div>
+            <div class="donate-actions">
+              <button class="btn-zelle" data-copy="conductaofficial@gmail.com" data-i18n="donate.copy">Copiar correo</button>
+            </div>
+          </article>
+
+          <article class="donate-card donate-paypal reveal">
+            <div class="donate-head">
+              <svg class="donate-logo" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg" aria-label="PayPal">
+                <text x="0" y="34" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="32" font-style="italic" font-weight="900" letter-spacing="-1.2">
+                  <tspan fill="#4DA3E5">Pay</tspan><tspan fill="#6DC5F5">Pal</tspan>
+                </text>
+              </svg>
+              <span class="donate-label" data-i18n="donate.card">Tarjeta / Débito</span>
+            </div>
+            <h3 class="donate-title" data-i18n="donate.paypalTitle">Donar con PayPal</h3>
+            <p class="donate-note" data-i18n="donate.paypalNote">Puedes usar tarjeta de crédito o débito, sin necesidad de iniciar sesión.</p>
+            <div class="donate-actions">
+              <form class="paypal-form" action="https://www.paypal.com/donate" method="post" target="_top">
+                <input type="hidden" name="business" value="conductaofficial@gmail.com" />
+                <input type="hidden" name="no_recurring" value="0" />
+                <input type="hidden" name="item_name" value="Conducta Nonprofit Donation" />
+                <input type="hidden" name="currency_code" value="USD" />
+                <button type="submit" class="btn-paypal" data-i18n="donate.paypal">Donar con PayPal</button>
+              </form>
+            </div>
+          </article>
+        </div>
+
+        <p class="donate-footnote" data-i18n="donate.footnote">
+          Conducta es un proyecto sin fines de lucro. Cada dólar se documenta en nuestro <a href="blog.html">blog</a>.
+        </p>
+      </div>
+    </section>
+
+    <section id="contacto" class="section" aria-labelledby="contact-title">
+      <div class="section-inner">
+        <header class="section-header reveal" style="justify-items: center; text-align: center;">
+          <div class="section-meta">
+            <span class="section-num">N.º 05</span>
+            <span class="section-meta-label" data-i18n="contact.eyebrow">En contacto</span>
+          </div>
+          <div class="section-head-body">
+            <h2 id="contact-title" class="section-title" data-i18n="contact.title">Contacto</h2>
+          </div>
+        </header>
+
+        <div class="contact">
+          <p class="contact-text reveal" data-i18n="contact.text">¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.</p>
+          <a class="contact-email reveal" href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Conducta · Miami</p>
-    <p class="footer-tag" data-i18n="footer.tag">Sin filtro. Sin guión.</p>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="nav-logo.png" alt="Conducta" class="brand-logo" />
+          <p class="footer-tag" data-i18n="footer.longTag">Una voz para las personas que el mundo prefiere no ver. Miami, Florida.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.explore">Explorar</h4>
+          <ul>
+            <li><a href="#about" data-i18n="nav.about">Quiénes Somos</a></li>
+            <li><a href="#imagenes" data-i18n="nav.images">Imágenes</a></li>
+            <li><a href="#donar" data-i18n="nav.donate">Donar</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.connect">Conecta</h4>
+          <ul>
+            <li><a href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a></li>
+          </ul>
+          <div class="social-links">
+            <a class="social-ig" href="https://www.instagram.com/conducta_dade/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 00-2.13 1.38A5.9 5.9 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13.67.65 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 002.13-1.38 5.9 5.9 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+            </a>
+            <a class="social-tt" href="https://www.tiktok.com/@conductadade" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.64a8.16 8.16 0 004.77 1.52V6.77a4.85 4.85 0 01-1.84-.08z"/></svg>
+            </a>
+            <a class="social-fb" href="https://www.facebook.com/conducta.dade" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+            </a>
+            <a class="social-yt" href="https://www.youtube.com/@Conductadade" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.12C19.55 3.58 12 3.58 12 3.58s-7.55 0-9.4.5A3 3 0 00.5 6.2C0 8.06 0 12 0 12s0 3.94.5 5.8a3 3 0 002.1 2.12c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 002.1-2.12C24 15.94 24 12 24 12s0-3.94-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Conducta · Miami, FL</p>
+        <p class="footer-colophon" data-i18n="footer.colophon">Set in Newsreader &amp; Inter. Sin filtro, sin guión.</p>
+      </div>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=editorial-1"></script>
 </body>
 </html>

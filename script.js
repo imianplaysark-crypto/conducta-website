@@ -3,16 +3,25 @@ const FLAG_ES = '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect 
 
 const translations = {
   es: {
+    "a11y.skip": "Saltar al contenido",
+    "nav.home": "Inicio",
     "nav.about": "Quiénes Somos",
     "nav.images": "Imágenes",
     "nav.donate": "Donar",
     "nav.blog": "Blog",
     "nav.contact": "Contacto",
-    "nav.home": "Inicio",
-    "hero.tag": "Documentamos la realidad diaria sin filtro y sin guión.<br />Somos la voz de las personas que el mundo ignora.",
-    "hero.location": "Miami · Sin fines de lucro",
-    "hero.cta": "Apoya la causa",
-    "about.title": "Quiénes Somos",
+
+    "hero.issue": "Edición 01 · Miami · 2026",
+    "hero.headline": "Sin filtro. <em>Sin guión.</em> Sin olvido.",
+    "hero.lede": "Documentamos la realidad diaria de las personas que el mundo ignora — y convertimos cada aporte en comida, abrigo y dignidad en las calles de Miami.",
+    "hero.cta": "<span>Apoya la causa</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
+    "hero.learn": "Nuestra misión",
+    "hero.scroll": "Desplaza",
+    "pullquote.text": "Cada aporte se convierte en <em>comida, abrigo y sonrisas</em>.",
+    "pullquote.byline": "Conducta · Miami",
+
+    "about.eyebrow": "Nuestra misión",
+    "about.title": "Voces que el mundo prefiere no escuchar.",
     "about.lead": "Conducta es una organización sin fines de lucro con sede en Miami que apoya a poblaciones vulnerables a través de la asistencia directa y narrativas que dan visibilidad a las comunidades que el mundo prefiere no ver.",
     "about.p1.title": "Asistencia directa",
     "about.p1.text": "Distribución de alimentos y recursos esenciales para personas en situación de calle.",
@@ -20,19 +29,33 @@ const translations = {
     "about.p2.text": "Acompañamiento hacia programas de ayuda, rehabilitación y reintegración.",
     "about.p3.title": "Documentación",
     "about.p3.text": "Trabajo documental que captura historias auténticas, sin filtro y sin guión.",
+
+    "images.eyebrow": "Galería",
     "images.title": "Imágenes",
-    "images.sub": "Momentos que documentan nuestra labor.",
+    "images.sub": "Momentos que documentan nuestra labor en las calles — crudos, sin montaje, sin filtro.",
+
+    "donate.eyebrow": "Apóyanos",
     "donate.title": "Donar",
-    "donate.sub": "Cada aporte se convierte en comida, abrigo y sonrisas. El uso de las donaciones se muestra en nuestra sección de blog.",
-    "donate.blogCta": "Ver Blog",
+    "donate.sub": "Cada aporte se convierte en comida, abrigo y sonrisas. El uso de cada donación se documenta en nuestro blog.",
+    "donate.instant": "Instantáneo",
+    "donate.card": "Tarjeta / Débito",
+    "donate.zelleTitle": "Enviar por Zelle",
+    "donate.zelleNote": "Directo desde tu app de banca sin comisiones.",
+    "donate.paypalTitle": "Donar con PayPal",
+    "donate.paypalNote": "Puedes usar tarjeta de crédito o débito, sin necesidad de iniciar sesión.",
     "donate.copy": "Copiar correo",
     "donate.paypal": "Donar con PayPal",
-    "donate.paypalNote": "Puedes usar tarjeta de crédito o débito, sin necesidad de iniciar sesión.",
+    "donate.footnote": "Conducta es un proyecto sin fines de lucro. Cada dólar se documenta en nuestro <a href=\"blog.html\">blog</a>.",
+
+    "blog.eyebrow": "Últimas historias",
     "blog.title": "Blog",
-    "blog.sub": "Historias desde las calles de Miami.",
+    "blog.sub": "Crónicas, actualizaciones y el uso transparente de cada donación.",
+    "blog.viewAll": "<span>Ver todas las historias</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
     "blog.loading": "Cargando publicaciones…",
     "blog.empty": "No hay publicaciones todavía.",
     "blog.error": "Error cargando publicaciones.",
+    "blog.read": "Leer",
+
     "admin.title": "Nueva publicación",
     "admin.sub": "Completa el formulario y copia el JSON generado en posts.json en GitHub.",
     "admin.postTitle": "Título del post",
@@ -45,24 +68,41 @@ const translations = {
     "admin.step1": "Abre posts.json en GitHub.",
     "admin.step2": "Pega este objeto dentro del array [ … ], separado por una coma si ya hay posts.",
     "admin.step3": "Haz commit del cambio. Vercel redeploya automáticamente.",
+
+    "contact.eyebrow": "En contacto",
     "contact.title": "Contacto",
     "contact.text": "¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.",
+
+    "footer.explore": "Explorar",
+    "footer.connect": "Conecta",
     "footer.tag": "Sin filtro. Sin guión.",
+    "footer.longTag": "Una voz para las personas que el mundo prefiere no ver. Miami, Florida.",
+    "footer.colophon": "Compuesto en Newsreader e Inter. Sin filtro, sin guión.",
+
     "toast.copied": "Correo copiado",
     "lang.toggle": FLAG_US + "<span>English</span>",
     "meta.description": "Conducta — Documentamos la realidad diaria sin filtro y sin guión. Somos la voz de las personas que el mundo ignora.",
   },
   en: {
+    "a11y.skip": "Skip to content",
+    "nav.home": "Home",
     "nav.about": "About",
     "nav.images": "Images",
     "nav.donate": "Donate",
     "nav.blog": "Blog",
     "nav.contact": "Contact",
-    "nav.home": "Home",
-    "hero.tag": "We document daily reality unfiltered and unscripted.<br />We are the voice of the people the world ignores.",
-    "hero.location": "Miami · Nonprofit",
-    "hero.cta": "Support the cause",
-    "about.title": "About Us",
+
+    "hero.issue": "Issue 01 · Miami · 2026",
+    "hero.headline": "Unfiltered. <em>Unscripted.</em> Unforgotten.",
+    "hero.lede": "We document the daily reality of the people the world ignores — and turn every contribution into food, shelter, and dignity on the streets of Miami.",
+    "hero.cta": "<span>Support the cause</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
+    "hero.learn": "Our mission",
+    "hero.scroll": "Scroll",
+    "pullquote.text": "Every contribution becomes <em>food, shelter, and smiles</em>.",
+    "pullquote.byline": "Conducta · Miami",
+
+    "about.eyebrow": "Our mission",
+    "about.title": "Voices the world prefers not to hear.",
     "about.lead": "Conducta is a Miami-based nonprofit supporting vulnerable populations through direct assistance and storytelling that brings visibility to the communities the world prefers not to see.",
     "about.p1.title": "Direct assistance",
     "about.p1.text": "Distribution of food and essential resources to people experiencing homelessness.",
@@ -70,19 +110,33 @@ const translations = {
     "about.p2.text": "Guidance toward aid, rehabilitation, and reintegration programs.",
     "about.p3.title": "Documentation",
     "about.p3.text": "Documentary work capturing authentic stories — unfiltered and unscripted.",
+
+    "images.eyebrow": "Gallery",
     "images.title": "Images",
-    "images.sub": "Moments that document our work.",
+    "images.sub": "Moments documenting our work on the streets — raw, unstaged, unfiltered.",
+
+    "donate.eyebrow": "Support us",
     "donate.title": "Donate",
-    "donate.sub": "Every contribution becomes food, shelter, and smiles. The use of donations is shown in our blog section.",
-    "donate.blogCta": "View Blog",
+    "donate.sub": "Every contribution becomes food, shelter, and smiles. The use of every donation is documented in our blog.",
+    "donate.instant": "Instant",
+    "donate.card": "Card / Debit",
+    "donate.zelleTitle": "Send via Zelle",
+    "donate.zelleNote": "Direct from your banking app with no fees.",
+    "donate.paypalTitle": "Donate with PayPal",
+    "donate.paypalNote": "You can use credit/debit card, no sign in required.",
     "donate.copy": "Copy email",
     "donate.paypal": "Donate with PayPal",
-    "donate.paypalNote": "You can use credit/debit card, no sign in required.",
+    "donate.footnote": "Conducta is a nonprofit project. Every dollar is documented in our <a href=\"blog.html\">blog</a>.",
+
+    "blog.eyebrow": "Latest stories",
     "blog.title": "Blog",
-    "blog.sub": "Stories from the streets of Miami.",
+    "blog.sub": "Chronicles, updates, and the transparent use of every donation.",
+    "blog.viewAll": "<span>View all stories</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
     "blog.loading": "Loading posts…",
     "blog.empty": "No posts yet.",
     "blog.error": "Error loading posts.",
+    "blog.read": "Read",
+
     "admin.title": "New post",
     "admin.sub": "Fill the form and paste the generated JSON into posts.json on GitHub.",
     "admin.postTitle": "Post title",
@@ -95,9 +149,17 @@ const translations = {
     "admin.step1": "Open posts.json on GitHub.",
     "admin.step2": "Paste this object inside the [ … ] array, separated by a comma if other posts exist.",
     "admin.step3": "Commit the change. Vercel redeploys automatically.",
+
+    "contact.eyebrow": "Get in touch",
     "contact.title": "Contact",
     "contact.text": "Want to collaborate, offer resources, or learn more about our work? Get in touch.",
+
+    "footer.explore": "Explore",
+    "footer.connect": "Connect",
     "footer.tag": "Unfiltered. Unscripted.",
+    "footer.longTag": "A voice for the people the world prefers not to see. Miami, Florida.",
+    "footer.colophon": "Set in Newsreader & Inter. Unfiltered, unscripted.",
+
     "toast.copied": "Email copied",
     "lang.toggle": FLAG_ES + "<span>Español</span>",
     "meta.description": "Conducta — We document daily reality unfiltered and unscripted. We are the voice of the people the world ignores.",
@@ -116,8 +178,9 @@ function applyLang(lang) {
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.setAttribute("content", dict["meta.description"]);
 
-  const toggle = document.getElementById("lang-toggle");
-  if (toggle) toggle.innerHTML = dict["lang.toggle"];
+  document.querySelectorAll("#lang-toggle").forEach((toggle) => {
+    toggle.innerHTML = dict["lang.toggle"];
+  });
 
   try { localStorage.setItem("conducta-lang", lang); } catch (e) {}
 }
@@ -202,10 +265,106 @@ async function renderBlog(lang) {
   }
 }
 
+function buildExcerpt(body, max = 140) {
+  const plain = String(body || "").replace(/\s+/g, " ").trim();
+  if (plain.length <= max) return plain;
+  return plain.slice(0, max).replace(/\s+\S*$/, "") + "…";
+}
+
+function renderTeaserCard(p, lang) {
+  const img = p.image
+    ? `<div class="teaser-image"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title || "")}" loading="lazy" /></div>`
+    : `<div class="teaser-image"></div>`;
+  const date = formatPostDate(p.date, lang);
+  const excerpt = buildExcerpt(p.body);
+  return `
+    <a href="blog.html" class="teaser-card">
+      ${img}
+      <div class="teaser-body">
+        <div class="teaser-date">${escapeHtml(date)}</div>
+        <h3 class="teaser-title">${escapeHtml(p.title || "")}</h3>
+        <p class="teaser-excerpt">${escapeHtml(excerpt)}</p>
+        <span class="teaser-read">${translations[lang]["blog.read"]} →</span>
+      </div>
+    </a>
+  `;
+}
+
+async function renderBlogTeaser(lang) {
+  const container = document.getElementById("blog-teaser-posts");
+  if (!container) return;
+  try {
+    const posts = await loadBlogPosts();
+    if (!posts.length) {
+      container.innerHTML = `<p class="teaser-empty">${translations[lang]["blog.empty"]}</p>`;
+      return;
+    }
+    const sorted = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
+    container.innerHTML = sorted.map((p) => renderTeaserCard(p, lang)).join("");
+  } catch (e) {
+    container.innerHTML = `<p class="teaser-empty">${translations[lang]["blog.error"]}</p>`;
+  }
+}
+
+function initMobileMenu() {
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const close = document.getElementById("mobile-menu-close");
+  if (!toggle || !menu) return;
+
+  const open = () => {
+    menu.classList.add("open");
+    menu.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  };
+  const closeMenu = () => {
+    menu.classList.remove("open");
+    menu.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+
+  toggle.addEventListener("click", open);
+  if (close) close.addEventListener("click", closeMenu);
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+}
+
+function initHeaderScroll() {
+  const header = document.getElementById("site-header");
+  if (!header) return;
+  const update = () => {
+    if (window.scrollY > 8) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  };
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+}
+
+function initReveal() {
+  const els = document.querySelectorAll(".reveal");
+  if (!els.length) return;
+  if (!("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("in"));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in");
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  els.forEach((el) => io.observe(el));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   let currentLang = detectLang();
   applyLang(currentLang);
   renderBlog(currentLang);
+  renderBlogTeaser(currentLang);
 
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) {
@@ -213,6 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentLang = currentLang === "es" ? "en" : "es";
       applyLang(currentLang);
       renderBlog(currentLang);
+      renderBlogTeaser(currentLang);
     });
   }
 
@@ -236,4 +396,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  initMobileMenu();
+  initHeaderScroll();
+  initReveal();
 });
