@@ -145,6 +145,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   -webkit-text-fill-color: transparent;
 }
 
+.hero-logo {
+  display: block;
+  width: 320px;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto 1.75rem;
+}
+
+@media (max-width: 760px) {
+  .hero-logo { width: 220px; }
+}
+
 .hero-tag {
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   font-weight: 300;
