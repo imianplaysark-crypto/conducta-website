@@ -1,3 +1,6 @@
+const FLAG_US = '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#b22234"/><rect y="1.23" width="24" height="1.23" fill="#fff"/><rect y="3.69" width="24" height="1.23" fill="#fff"/><rect y="6.15" width="24" height="1.23" fill="#fff"/><rect y="8.62" width="24" height="1.23" fill="#fff"/><rect y="11.08" width="24" height="1.23" fill="#fff"/><rect y="13.54" width="24" height="1.23" fill="#fff"/><rect width="9.6" height="8.62" fill="#3c3b6e"/></svg>';
+const FLAG_ES = '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#c60b1e"/><rect y="4" width="24" height="8" fill="#ffc400"/></svg>';
+
 const translations = {
   es: {
     "nav.about": "Quiénes Somos",
@@ -25,7 +28,7 @@ const translations = {
     "contact.text": "¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.",
     "footer.tag": "Sin filtro. Sin guión.",
     "toast.copied": "Correo copiado",
-    "lang.toggle": "🇺🇸 English",
+    "lang.toggle": FLAG_US + "<span>English</span>",
     "meta.description": "Conducta — Documentamos la realidad diaria sin filtro y sin guión. Somos la voz de las personas que el mundo ignora.",
   },
   en: {
@@ -54,7 +57,7 @@ const translations = {
     "contact.text": "Want to collaborate, offer resources, or learn more about our work? Get in touch.",
     "footer.tag": "Unfiltered. Unscripted.",
     "toast.copied": "Email copied",
-    "lang.toggle": "🇪🇸 Español",
+    "lang.toggle": FLAG_ES + "<span>Español</span>",
     "meta.description": "Conducta — We document daily reality unfiltered and unscripted. We are the voice of the people the world ignores.",
   },
 };
@@ -72,7 +75,7 @@ function applyLang(lang) {
   if (metaDesc) metaDesc.setAttribute("content", dict["meta.description"]);
 
   const toggle = document.getElementById("lang-toggle");
-  if (toggle) toggle.textContent = dict["lang.toggle"];
+  if (toggle) toggle.innerHTML = dict["lang.toggle"];
 
   try { localStorage.setItem("conducta-lang", lang); } catch (e) {}
 }

@@ -81,7 +81,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .lang-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
   border: 1px solid var(--black);
   padding: 0.5rem 0.95rem;
   font-size: 0.78rem;
@@ -91,7 +91,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: all 0.2s;
 }
 
+.lang-toggle .flag {
+  width: 20px;
+  height: 14px;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
 .lang-toggle:hover { background: var(--black); color: var(--white); }
+.lang-toggle:hover .flag { border-color: rgba(255, 255, 255, 0.25); }
 
 @media (max-width: 760px) {
   .nav { display: none; }
@@ -293,6 +302,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .donate-logo {
   height: 40px;
   width: auto;
+  display: block;
+}
+
+.donate-logo-icon {
+  width: 48px;
+  height: 48px;
   display: block;
 }
 
