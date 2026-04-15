@@ -9,10 +9,6 @@ const translations = {
     "nav.blog": "Blog",
     "nav.contact": "Contacto",
     "nav.home": "Inicio",
-    "label.mission": "Misión",
-    "label.work": "Trabajo",
-    "label.support": "Apoyo",
-    "label.contact": "Contacto",
     "hero.tag": "Documentamos la realidad diaria sin filtro y sin guión.<br />Somos la voz de las personas que el mundo ignora.",
     "hero.location": "Miami · Sin fines de lucro",
     "hero.cta": "Apoya la causa",
@@ -63,10 +59,6 @@ const translations = {
     "nav.blog": "Blog",
     "nav.contact": "Contact",
     "nav.home": "Home",
-    "label.mission": "Mission",
-    "label.work": "Work",
-    "label.support": "Support",
-    "label.contact": "Contact",
     "hero.tag": "We document daily reality unfiltered and unscripted.<br />We are the voice of the people the world ignores.",
     "hero.location": "Miami · Nonprofit",
     "hero.cta": "Support the cause",
@@ -244,29 +236,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  const header = document.getElementById("site-header");
-  if (header) {
-    const onScroll = () => {
-      if (window.scrollY > 8) header.classList.add("scrolled");
-      else header.classList.remove("scrolled");
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
-
-  const revealEls = document.querySelectorAll(".reveal");
-  if (revealEls.length && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
-    revealEls.forEach((el) => observer.observe(el));
-  } else {
-    revealEls.forEach((el) => el.classList.add("is-visible"));
-  }
 });

@@ -4,18 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Conducta — Documentamos la realidad diaria sin filtro y sin guión. Somos la voz de las personas que el mundo ignora." data-i18n-meta="description" />
+  <link rel="icon" type="image/png" href="logo.png" />
   <title>Conducta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header" id="site-header">
-    <a href="#hero" class="brand">CONDUCTA</a>
+  <header class="site-header">
+    <a href="#hero" class="brand">
+      <img src="logo.png" alt="Conducta logo" class="brand-logo" />
+      <span>CONDUCTA</span>
+    </a>
     <nav class="nav">
       <a href="#hero" data-i18n="nav.home">Inicio</a>
-      <a href="#quienes" data-i18n="nav.about">Quiénes Somos</a>
       <a href="#imagenes" data-i18n="nav.images">Imágenes</a>
       <a href="#donar" data-i18n="nav.donate">Donar</a>
       <a href="blog.html" data-i18n="nav.blog">Blog</a>
@@ -31,46 +34,17 @@
     <section id="hero" class="hero">
       <div class="hero-inner">
         <h1 class="hero-title">CONDUCTA</h1>
-        <hr class="hero-rule" />
         <p class="hero-tag" data-i18n="hero.tag">
           Documentamos la realidad diaria sin filtro y sin guión.<br />
           Somos la voz de las personas que el mundo ignora.
         </p>
-        <hr class="hero-rule" />
         <p class="hero-location" data-i18n="hero.location">Miami · Sin fines de lucro</p>
         <a href="#donar" class="btn-primary" data-i18n="hero.cta">Apoya la causa</a>
       </div>
     </section>
 
-    <section id="quienes" class="section reveal">
+    <section id="imagenes" class="section section-alt">
       <div class="section-inner">
-        <p class="section-label"><span class="label-num">01</span><span class="label-divider"></span><span data-i18n="label.mission">Misión</span></p>
-        <h2 class="section-title" data-i18n="about.title">Quiénes Somos</h2>
-        <div class="about-grid">
-          <p class="lead" data-i18n="about.lead">
-            Conducta es una organización sin fines de lucro con sede en Miami que apoya a poblaciones vulnerables a través de la asistencia directa y narrativas que dan visibilidad a las comunidades que el mundo prefiere no ver.
-          </p>
-          <ul class="pillars">
-            <li>
-              <h3 data-i18n="about.p1.title">Asistencia directa</h3>
-              <p data-i18n="about.p1.text">Distribución de alimentos y recursos esenciales para personas en situación de calle.</p>
-            </li>
-            <li>
-              <h3 data-i18n="about.p2.title">Conexión a programas</h3>
-              <p data-i18n="about.p2.text">Acompañamiento hacia programas de ayuda, rehabilitación y reintegración.</p>
-            </li>
-            <li>
-              <h3 data-i18n="about.p3.title">Documentación</h3>
-              <p data-i18n="about.p3.text">Trabajo documental que captura historias auténticas, sin filtro y sin guión.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="imagenes" class="section reveal">
-      <div class="section-inner">
-        <p class="section-label"><span class="label-num">02</span><span class="label-divider"></span><span data-i18n="label.work">Trabajo</span></p>
         <h2 class="section-title" data-i18n="images.title">Imágenes</h2>
         <p class="section-sub" data-i18n="images.sub">Momentos que documentan nuestra labor.</p>
         <div class="image-grid">
@@ -84,9 +58,8 @@
       </div>
     </section>
 
-    <section id="donar" class="section reveal">
+    <section id="donar" class="section">
       <div class="section-inner">
-        <p class="section-label"><span class="label-num">03</span><span class="label-divider"></span><span data-i18n="label.support">Apoyo</span></p>
         <h2 class="section-title" data-i18n="donate.title">Donar</h2>
         <p class="section-sub" data-i18n="donate.sub">Cada aporte se convierte en comida, abrigo y sonrisas. El uso de las donaciones se muestra en nuestra sección de blog.</p>
         <a href="blog.html" class="btn-ghost btn-blog-cta" data-i18n="donate.blogCta">Ver Blog</a>
@@ -98,7 +71,7 @@
               </svg>
             </div>
             <p class="donate-detail">conductaofficial@gmail.com</p>
-            <button class="btn-donate btn-zelle" data-copy="conductaofficial@gmail.com" data-i18n="donate.copy">Copiar correo</button>
+            <button class="btn-zelle" data-copy="conductaofficial@gmail.com" data-i18n="donate.copy">Copiar correo</button>
           </div>
           <div class="donate-card donate-paypal">
             <div class="donate-brand">
@@ -114,16 +87,15 @@
               <input type="hidden" name="no_recurring" value="0" />
               <input type="hidden" name="item_name" value="Conducta Nonprofit Donation" />
               <input type="hidden" name="currency_code" value="USD" />
-              <button type="submit" class="btn-donate btn-paypal" data-i18n="donate.paypal">Donar con PayPal</button>
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to donate online!" alt="Donate with PayPal button" />
             </form>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contacto" class="section reveal">
+    <section id="contacto" class="section section-alt">
       <div class="section-inner contact-inner">
-        <p class="section-label"><span class="label-num">04</span><span class="label-divider"></span><span data-i18n="label.contact">Contacto</span></p>
         <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
         <p class="contact-text" data-i18n="contact.text">¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.</p>
         <a class="contact-email" href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a>
@@ -132,8 +104,8 @@
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Conducta</p>
-    <a class="footer-email" href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a>
+    <p>© <span id="year"></span> Conducta · Miami</p>
+    <p class="footer-tag" data-i18n="footer.tag">Sin filtro. Sin guión.</p>
   </footer>
 
   <script src="script.js"></script>
