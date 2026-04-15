@@ -73,7 +73,11 @@
           </div>
           <div class="donate-card donate-paypal">
             <div class="donate-brand">
-              <svg class="donate-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" aria-label="PayPal"><path fill="#003087" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
+              <svg class="donate-logo" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg" aria-label="PayPal">
+                <text x="0" y="34" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="32" font-style="italic" font-weight="900" letter-spacing="-1.2">
+                  <tspan fill="#003087">Pay</tspan><tspan fill="#009CDE">Pal</tspan>
+                </text>
+              </svg>
             </div>
             <p class="donate-note" data-i18n="donate.paypalNote">Puedes usar tarjeta de crédito o débito, sin necesidad de iniciar sesión.</p>
             <form class="paypal-form" action="https://www.paypal.com/donate" method="post" target="_top">
@@ -81,7 +85,9 @@
               <input type="hidden" name="no_recurring" value="0" />
               <input type="hidden" name="item_name" value="Conducta Nonprofit Donation" />
               <input type="hidden" name="currency_code" value="USD" />
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to donate online!" alt="Donate with PayPal button" />
+              <button type="submit" class="btn-paypal" aria-label="Donar con PayPal">
+                <span class="btn-paypal-wordmark"><span class="pp-pay">Pay</span><span class="pp-pal">Pal</span></span>
+              </button>
             </form>
           </div>
         </div>
