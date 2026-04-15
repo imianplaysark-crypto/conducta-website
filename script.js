@@ -6,7 +6,9 @@ const translations = {
     "nav.about": "Quiénes Somos",
     "nav.images": "Imágenes",
     "nav.donate": "Donar",
+    "nav.blog": "Blog",
     "nav.contact": "Contacto",
+    "nav.home": "Inicio",
     "hero.tag": "Documentamos la realidad diaria sin filtro y sin guión.<br />Somos la voz de las personas que el mundo ignora.",
     "hero.location": "Miami · Sin fines de lucro",
     "hero.cta": "Apoya la causa",
@@ -21,9 +23,28 @@ const translations = {
     "images.title": "Imágenes",
     "images.sub": "Momentos del trabajo en las calles de Miami.",
     "donate.title": "Donar",
-    "donate.sub": "Cada aporte se convierte en comida, abrigo y dignidad. Gracias por sumar.",
+    "donate.sub": "Cada aporte se convierte en comida, abrigo y sonrisas. El uso de las donaciones se muestra en nuestra sección de blog.",
+    "donate.blogCta": "Ver Blog",
     "donate.copy": "Copiar correo",
     "donate.paypal": "Donar con PayPal",
+    "donate.paypalNote": "Puedes usar tarjeta de crédito o débito, sin necesidad de iniciar sesión.",
+    "blog.title": "Blog",
+    "blog.sub": "Historias desde las calles de Miami.",
+    "blog.loading": "Cargando publicaciones…",
+    "blog.empty": "No hay publicaciones todavía.",
+    "blog.error": "Error cargando publicaciones.",
+    "admin.title": "Nueva publicación",
+    "admin.sub": "Completa el formulario y copia el JSON generado en posts.json en GitHub.",
+    "admin.postTitle": "Título del post",
+    "admin.postDate": "Fecha",
+    "admin.postImage": "URL de imagen",
+    "admin.postBody": "Contenido",
+    "admin.generate": "Generar JSON",
+    "admin.outputTitle": "JSON generado",
+    "admin.copy": "Copiar",
+    "admin.step1": "Abre posts.json en GitHub.",
+    "admin.step2": "Pega este objeto dentro del array [ … ], separado por una coma si ya hay posts.",
+    "admin.step3": "Haz commit del cambio. Vercel redeploya automáticamente.",
     "contact.title": "Contacto",
     "contact.text": "¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.",
     "footer.tag": "Sin filtro. Sin guión.",
@@ -35,7 +56,9 @@ const translations = {
     "nav.about": "About",
     "nav.images": "Images",
     "nav.donate": "Donate",
+    "nav.blog": "Blog",
     "nav.contact": "Contact",
+    "nav.home": "Home",
     "hero.tag": "We document daily reality unfiltered and unscripted.<br />We are the voice of the people the world ignores.",
     "hero.location": "Miami · Nonprofit",
     "hero.cta": "Support the cause",
@@ -50,9 +73,28 @@ const translations = {
     "images.title": "Images",
     "images.sub": "Moments from the work on the streets of Miami.",
     "donate.title": "Donate",
-    "donate.sub": "Every contribution becomes food, shelter, and dignity. Thank you for joining in.",
+    "donate.sub": "Every contribution becomes food, shelter, and smiles. The use of donations is shown in our blog section.",
+    "donate.blogCta": "View Blog",
     "donate.copy": "Copy email",
     "donate.paypal": "Go to PayPal.me",
+    "donate.paypalNote": "You can use credit/debit card, no sign in required.",
+    "blog.title": "Blog",
+    "blog.sub": "Stories from the streets of Miami.",
+    "blog.loading": "Loading posts…",
+    "blog.empty": "No posts yet.",
+    "blog.error": "Error loading posts.",
+    "admin.title": "New post",
+    "admin.sub": "Fill the form and paste the generated JSON into posts.json on GitHub.",
+    "admin.postTitle": "Post title",
+    "admin.postDate": "Date",
+    "admin.postImage": "Image URL",
+    "admin.postBody": "Body text",
+    "admin.generate": "Generate JSON",
+    "admin.outputTitle": "Generated JSON",
+    "admin.copy": "Copy",
+    "admin.step1": "Open posts.json on GitHub.",
+    "admin.step2": "Paste this object inside the [ … ] array, separated by a comma if other posts exist.",
+    "admin.step3": "Commit the change. Vercel redeploys automatically.",
     "contact.title": "Contact",
     "contact.text": "Want to collaborate, offer resources, or learn more about our work? Get in touch.",
     "footer.tag": "Unfiltered. Unscripted.",
@@ -101,14 +143,78 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove("show"), 2200);
 }
 
+let blogPostsCache = null;
+
+async function loadBlogPosts() {
+  if (blogPostsCache) return blogPostsCache;
+  const res = await fetch("posts.json", { cache: "no-store" });
+  if (!res.ok) throw new Error("fetch failed");
+  const data = await res.json();
+  blogPostsCache = Array.isArray(data) ? data : data.posts || [];
+  return blogPostsCache;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function formatPostDate(iso, lang) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (isNaN(d)) return iso;
+  return d.toLocaleDateString(lang === "en" ? "en-US" : "es-ES", { year: "numeric", month: "long", day: "numeric" });
+}
+
+function renderPost(p, lang) {
+  const img = p.image
+    ? `<div class="blog-post-image"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title || "")}" loading="lazy" /></div>`
+    : "";
+  const date = formatPostDate(p.date, lang);
+  const bodyParas = escapeHtml(p.body || "")
+    .split(/\n\n+/)
+    .map((para) => `<p>${para.replace(/\n/g, "<br />")}</p>`)
+    .join("");
+  return `
+    <article class="blog-post">
+      ${img}
+      <div class="blog-post-content">
+        <time class="blog-post-date">${escapeHtml(date)}</time>
+        <h2 class="blog-post-title">${escapeHtml(p.title || "")}</h2>
+        <div class="blog-post-body">${bodyParas}</div>
+      </div>
+    </article>
+  `;
+}
+
+async function renderBlog(lang) {
+  const container = document.getElementById("blog-posts");
+  if (!container) return;
+  try {
+    const posts = await loadBlogPosts();
+    if (!posts.length) {
+      container.innerHTML = `<p class="blog-empty">${translations[lang]["blog.empty"]}</p>`;
+      return;
+    }
+    const sorted = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
+    container.innerHTML = sorted.map((p) => renderPost(p, lang)).join("");
+  } catch (e) {
+    container.innerHTML = `<p class="blog-error">${translations[lang]["blog.error"]}</p>`;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   let currentLang = detectLang();
   applyLang(currentLang);
+  renderBlog(currentLang);
 
-  document.getElementById("lang-toggle").addEventListener("click", () => {
-    currentLang = currentLang === "es" ? "en" : "es";
-    applyLang(currentLang);
-  });
+  const langToggle = document.getElementById("lang-toggle");
+  if (langToggle) {
+    langToggle.addEventListener("click", () => {
+      currentLang = currentLang === "es" ? "en" : "es";
+      applyLang(currentLang);
+      renderBlog(currentLang);
+    });
+  }
 
   document.querySelectorAll("[data-copy]").forEach((btn) => {
     btn.addEventListener("click", async () => {

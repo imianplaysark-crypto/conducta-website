@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin · Conducta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html#hero" class="brand">
+      <img src="logo.png" alt="Conducta logo" class="brand-logo" style="mix-blend-mode: multiply; background: transparent;" />
+      <span>CONDUCTA</span>
+    </a>
+    <nav class="nav">
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+    </nav>
+    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+      <svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#b22234"/><rect y="1.23" width="24" height="1.23" fill="#fff"/><rect y="3.69" width="24" height="1.23" fill="#fff"/><rect y="6.15" width="24" height="1.23" fill="#fff"/><rect y="8.62" width="24" height="1.23" fill="#fff"/><rect y="11.08" width="24" height="1.23" fill="#fff"/><rect y="13.54" width="24" height="1.23" fill="#fff"/><rect width="9.6" height="8.62" fill="#3c3b6e"/></svg>
+      <span>English</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-inner admin-inner">
+        <h1 class="section-title" data-i18n="admin.title">Nueva publicación</h1>
+        <p class="section-sub" data-i18n="admin.sub">Completa el formulario y copia el JSON generado en posts.json en GitHub.</p>
+
+        <form id="admin-form" class="admin-form" autocomplete="off">
+          <label class="admin-field">
+            <span data-i18n="admin.postTitle">Título del post</span>
+            <input type="text" id="f-title" required />
+          </label>
+
+          <label class="admin-field">
+            <span data-i18n="admin.postDate">Fecha</span>
+            <input type="date" id="f-date" required />
+          </label>
+
+          <label class="admin-field">
+            <span data-i18n="admin.postImage">URL de imagen</span>
+            <input type="url" id="f-image" placeholder="https://…" />
+          </label>
+
+          <label class="admin-field">
+            <span data-i18n="admin.postBody">Contenido</span>
+            <textarea id="f-body" rows="8" required></textarea>
+          </label>
+
+          <button type="submit" class="btn-primary admin-generate" data-i18n="admin.generate">Generar JSON</button>
+        </form>
+
+        <div id="admin-output" class="admin-output" hidden>
+          <div class="admin-output-header">
+            <h3 data-i18n="admin.outputTitle">JSON generado</h3>
+            <button type="button" id="admin-copy" class="btn-ghost" data-i18n="admin.copy">Copiar</button>
+          </div>
+          <pre id="admin-json" class="admin-json"></pre>
+          <ol class="admin-steps">
+            <li data-i18n="admin.step1">Abre posts.json en GitHub.</li>
+            <li data-i18n="admin.step2">Pega este objeto dentro del array [ … ], separado por una coma si ya hay posts.</li>
+            <li data-i18n="admin.step3">Haz commit del cambio. Vercel redeploya automáticamente.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Conducta · Miami</p>
+    <p class="footer-tag" data-i18n="footer.tag">Sin filtro. Sin guión.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById("admin-form");
+      const output = document.getElementById("admin-output");
+      const jsonEl = document.getElementById("admin-json");
+      const copyBtn = document.getElementById("admin-copy");
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const post = {
+          title: document.getElementById("f-title").value.trim(),
+          date: document.getElementById("f-date").value.trim(),
+          image: document.getElementById("f-image").value.trim(),
+          body: document.getElementById("f-body").value.trim(),
+        };
+        if (!post.image) delete post.image;
+        const json = JSON.stringify(post, null, 2);
+        jsonEl.textContent = json;
+        output.hidden = false;
+        output.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      copyBtn.addEventListener("click", async () => {
+        const text = jsonEl.textContent;
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (e) {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+        }
+        const orig = copyBtn.textContent;
+        copyBtn.textContent = (document.documentElement.lang === "en" ? "Copied!" : "¡Copiado!");
+        setTimeout(() => { copyBtn.textContent = orig; }, 1600);
+      });
+    })();
+  </script>
+</body>
+</html>
