@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conducta — Documentamos la realidad diaria sin filtro y sin guión. Somos la voz de las personas que el mundo ignora." data-i18n-meta="description" />
+  <title>Conducta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="#hero" class="brand">CONDUCTA</a>
+    <nav class="nav">
+      <a href="#quienes" data-i18n="nav.about">Quiénes Somos</a>
+      <a href="#imagenes" data-i18n="nav.images">Imágenes</a>
+      <a href="#donar" data-i18n="nav.donate">Donar</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">EN</button>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">CONDUCTA</h1>
+        <p class="hero-tag" data-i18n="hero.tag">
+          Documentamos la realidad diaria sin filtro y sin guión.<br />
+          Somos la voz de las personas que el mundo ignora.
+        </p>
+        <p class="hero-location" data-i18n="hero.location">Miami · Sin fines de lucro</p>
+        <a href="#donar" class="btn-primary" data-i18n="hero.cta">Apoya la causa</a>
+      </div>
+    </section>
+
+    <section id="quienes" class="section">
+      <div class="section-inner">
+        <h2 class="section-title" data-i18n="about.title">Quiénes Somos</h2>
+        <div class="about-grid">
+          <p class="lead" data-i18n="about.lead">
+            Conducta es una organización sin fines de lucro con sede en Miami que apoya a poblaciones vulnerables a través de la asistencia directa y narrativas que dan visibilidad a las comunidades que el mundo prefiere no ver.
+          </p>
+          <ul class="pillars">
+            <li>
+              <h3 data-i18n="about.p1.title">Asistencia directa</h3>
+              <p data-i18n="about.p1.text">Distribución de alimentos y recursos esenciales para personas en situación de calle.</p>
+            </li>
+            <li>
+              <h3 data-i18n="about.p2.title">Conexión a programas</h3>
+              <p data-i18n="about.p2.text">Acompañamiento hacia programas de ayuda, rehabilitación y reintegración.</p>
+            </li>
+            <li>
+              <h3 data-i18n="about.p3.title">Documentación</h3>
+              <p data-i18n="about.p3.text">Trabajo documental que captura historias auténticas, sin filtro y sin guión.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="imagenes" class="section section-alt">
+      <div class="section-inner">
+        <h2 class="section-title" data-i18n="images.title">Imágenes</h2>
+        <p class="section-sub" data-i18n="images.sub">Momentos del trabajo en las calles de Miami.</p>
+        <div class="image-grid">
+          <figure class="img-tile"><div class="img-placeholder">01</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">02</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">03</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">04</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">05</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">06</div></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="donar" class="section">
+      <div class="section-inner">
+        <h2 class="section-title" data-i18n="donate.title">Donar</h2>
+        <p class="section-sub" data-i18n="donate.sub">Cada aporte se convierte en comida, abrigo y dignidad. Gracias por sumar.</p>
+        <div class="donate-grid">
+          <div class="donate-card">
+            <h3>Zelle</h3>
+            <p class="donate-detail">conductaofficial@gmail.com</p>
+            <button class="btn-outline" data-copy="conductaofficial@gmail.com" data-i18n="donate.copy">Copiar correo</button>
+          </div>
+          <div class="donate-card">
+            <h3>PayPal</h3>
+            <p class="donate-detail">paypal.me/conductadade</p>
+            <a class="btn-outline" href="https://paypal.me/conductadade" target="_blank" rel="noopener" data-i18n="donate.paypal">Donar con PayPal</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section section-alt">
+      <div class="section-inner contact-inner">
+        <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
+        <p class="contact-text" data-i18n="contact.text">¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.</p>
+        <a class="contact-email" href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Conducta · Miami</p>
+    <p class="footer-tag" data-i18n="footer.tag">Sin filtro. Sin guión.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
