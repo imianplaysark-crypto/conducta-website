@@ -147,11 +147,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* Hero */
 .hero {
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1.5rem var(--pad) 2.5rem;
+  padding: 3rem var(--pad);
   background: var(--white);
   color: var(--black);
   border-bottom: 1px solid var(--black);
@@ -183,11 +184,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 420px;
   max-width: 92%;
   height: auto;
-  margin: 0 auto 0.25rem;
+  margin: 0 auto 24px;
   filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.18));
 }
 
-.hero-tag { margin-top: 0; margin-bottom: 1.25rem; }
+.hero-tag { margin: 0 auto 32px; }
+
+.hero .btn-primary { margin: 0; }
 
 @media (max-width: 760px) {
   .hero-logo { width: 280px; }
