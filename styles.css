@@ -1,12 +1,13 @@
 :root {
-  --black: #1a0b26;
-  --conducta-dark: #1a0b26;
-  --white: #ffffff;
-  --gray-50: #f7f7f7;
-  --gray-100: #ececec;
-  --gray-300: #cfcfcf;
-  --gray-500: #8a8a8a;
-  --gray-800: #2a1a36;
+  /* Dark theme — semantic names retained from light theme; values inverted. */
+  --black: #F2F2F2;            /* primary text / "ink" — now light */
+  --white: #0B0B10;            /* page background — now near-black */
+  --conducta-dark: #16161C;    /* slightly elevated dark surface */
+  --gray-50: #14141A;          /* darkest surface */
+  --gray-100: rgba(255, 255, 255, 0.10); /* hairline borders */
+  --gray-300: #C8C8D0;         /* secondary light text */
+  --gray-500: #8A8A95;         /* muted text (mid gray, works both modes) */
+  --gray-800: #D8D8DE;         /* near-primary text on dark */
   --max: 1200px;
   --pad: clamp(1.25rem, 4vw, 3rem);
   --serif: "Playfair Display", Georgia, serif;
@@ -41,8 +42,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem var(--pad);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(11, 11, 16, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--gray-100);
 }
 
@@ -104,12 +106,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 20px;
   height: 14px;
   display: block;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   flex-shrink: 0;
 }
 
 .lang-toggle:hover { background: var(--black); color: var(--white); }
-.lang-toggle:hover .flag { border-color: rgba(255, 255, 255, 0.25); }
+.lang-toggle:hover .flag { border-color: rgba(0, 0, 0, 0.25); }
 
 .social-links {
   display: flex;
@@ -155,7 +157,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 3rem var(--pad);
   background: var(--white);
   color: var(--black);
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--gray-100);
 }
 
 .hero-inner {
@@ -185,7 +187,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   max-width: 92%;
   height: auto;
   margin: 0 auto 24px;
-  filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.18));
+  filter: drop-shadow(0px 8px 28px rgba(0, 201, 255, 0.18));
 }
 
 .hero-tag { margin: 0 auto 32px; }
@@ -234,8 +236,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .section-alt {
-  background: var(--black);
-  color: var(--white);
+  background: var(--gray-50);
+  color: var(--black);
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
 }
 
 .section-inner {
@@ -294,14 +298,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .blog-post {
-  border-top: 1px solid var(--black);
+  border-top: 1px solid var(--gray-100);
   padding-top: 2.5rem;
 }
 
 .blog-post-image {
   margin-bottom: 2rem;
   overflow: hidden;
-  background: var(--gray-800);
+  background: var(--gray-50);
   aspect-ratio: 16 / 9;
 }
 
@@ -375,8 +379,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: inherit;
   font-size: 1rem;
   padding: 0.85rem 1rem;
-  border: 1px solid var(--black);
-  background: var(--white);
+  border: 1px solid var(--gray-100);
+  background: var(--gray-50);
   color: var(--black);
   border-radius: 0;
   width: 100%;
@@ -391,15 +395,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .admin-field input:focus,
 .admin-field textarea:focus {
-  outline: 2px solid var(--black);
+  outline: 1px solid #00C9FF;
   outline-offset: 2px;
+  border-color: #00C9FF;
 }
 
 .admin-generate { margin-top: 1rem; align-self: flex-start; }
 
 .admin-output {
   margin-top: 3rem;
-  border-top: 1px solid var(--black);
+  border-top: 1px solid var(--gray-100);
   padding-top: 2.5rem;
 }
 
@@ -418,8 +423,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .admin-json {
-  background: var(--black);
-  color: var(--white);
+  background: var(--gray-50);
+  color: var(--black);
   padding: 1.5rem;
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
   font-size: 0.88rem;
@@ -427,6 +432,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   overflow-x: auto;
   white-space: pre-wrap;
   word-break: break-word;
+  border: 1px solid var(--gray-100);
 }
 
 .admin-steps {
@@ -458,7 +464,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .pillars { list-style: none; display: flex; flex-direction: column; gap: 2rem; }
 
-.pillars li { border-top: 1px solid var(--black); padding-top: 1.25rem; }
+.pillars li { border-top: 1px solid var(--gray-100); padding-top: 1.25rem; }
 
 .pillars h3 {
   font-size: 0.85rem;
@@ -484,8 +490,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .img-tile {
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: var(--gray-800);
+  background: var(--gray-50);
   position: relative;
+  border: 1px solid var(--gray-100);
 }
 
 .img-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
@@ -501,8 +508,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--serif);
   font-size: 2rem;
   color: var(--gray-500);
-  background: linear-gradient(135deg, #2a1536 0%, #12071a 100%);
-  border: 1px solid var(--gray-800);
+  background: linear-gradient(135deg, #1A1A22 0%, #0E0E14 100%);
 }
 
 @media (max-width: 800px) {
@@ -523,16 +529,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .donate-card {
   position: relative;
-  border: 1px solid var(--black);
+  border: 1px solid var(--gray-100);
   padding: 2.5rem 2rem;
-  background: var(--white);
+  background: var(--gray-50);
   text-align: left;
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
   display: flex;
   flex-direction: column;
 }
 
-.donate-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,0.12); }
+.donate-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 18px 48px rgba(0, 201, 255, 0.08);
+}
 
 .donate-zelle { border-top: 4px solid #6D1ED4; }
 .donate-paypal { border-top: 4px solid #003087; }
@@ -637,20 +647,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--serif);
   font-size: clamp(1.25rem, 3.5vw, 2.25rem);
   font-weight: 700;
-  border-bottom: 2px solid var(--white);
+  border-bottom: 2px solid var(--black);
   padding-bottom: 0.4rem;
-  transition: opacity 0.2s;
+  transition: color 0.2s, border-color 0.2s;
   word-break: break-all;
 }
 
-.contact-email:hover { opacity: 0.7; }
+.contact-email:hover { color: #00C9FF; border-color: #00C9FF; }
 
 /* Footer */
 .site-footer {
   padding: 2.5rem var(--pad);
-  background: var(--conducta-dark);
-  color: var(--white);
-  border-top: 1px solid var(--conducta-dark);
+  background: var(--white);
+  color: var(--black);
+  border-top: 1px solid var(--gray-100);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -659,9 +669,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-transform: uppercase;
 }
 
-.site-footer p { color: var(--white); }
+.site-footer p { color: var(--black); }
 
-.footer-tag { font-style: italic; color: var(--white); text-transform: none; letter-spacing: 0; }
+.footer-tag { font-style: italic; color: var(--gray-500); text-transform: none; letter-spacing: 0; }
 
 @media (max-width: 600px) {
   .site-footer { flex-direction: column; gap: 0.75rem; text-align: center; }
@@ -679,7 +689,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  border: 1px solid var(--white);
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
   z-index: 200;
 }
