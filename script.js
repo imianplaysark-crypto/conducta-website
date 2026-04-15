@@ -46,7 +46,7 @@ const translations = {
     "contact.text": "¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.",
     "footer.tag": "Sin filtro. Sin guión.",
     "toast.copied": "Correo copiado",
-    "lang.toggle": "<span>English</span>",
+    "lang.toggle": "🇺🇸 English",
     "meta.description": "Conducta — Documentamos la realidad diaria sin filtro y sin guión. Somos la voz de las personas que el mundo ignora.",
   },
   en: {
@@ -96,7 +96,7 @@ const translations = {
     "contact.text": "Want to collaborate, offer resources, or learn more about our work? Get in touch.",
     "footer.tag": "Unfiltered. Unscripted.",
     "toast.copied": "Email copied",
-    "lang.toggle": "<span>Español</span>",
+    "lang.toggle": "🇪🇸 Español",
     "meta.description": "Conducta — We document daily reality unfiltered and unscripted. We are the voice of the people the world ignores.",
   },
 };
@@ -114,7 +114,7 @@ function applyLang(lang) {
   if (metaDesc) metaDesc.setAttribute("content", dict["meta.description"]);
 
   const toggle = document.getElementById("lang-toggle");
-  if (toggle) toggle.innerHTML = dict["lang.toggle"];
+  if (toggle) toggle.textContent = dict["lang.toggle"];
 
   try { localStorage.setItem("conducta-lang", lang); } catch (e) {}
 }
