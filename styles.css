@@ -46,10 +46,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
   font-family: var(--serif);
   font-weight: 900;
   font-size: 1.4rem;
   letter-spacing: 0.15em;
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .nav {
@@ -69,11 +79,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav a:hover { opacity: 0.55; }
 
 .lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   border: 1px solid var(--black);
-  padding: 0.45rem 0.85rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  padding: 0.5rem 0.95rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
   font-weight: 500;
+  white-space: nowrap;
   transition: all 0.2s;
 }
 
@@ -254,44 +268,89 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .donate-card {
+  position: relative;
   border: 1px solid var(--black);
   padding: 2.5rem 2rem;
   background: var(--white);
   text-align: left;
-  transition: transform 0.25s;
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
 }
 
-.donate-card:hover { transform: translateY(-4px); }
+.donate-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,0.12); }
+
+.donate-zelle { border-top: 4px solid #6D1ED4; }
+.donate-paypal { border-top: 4px solid #003087; }
+
+.donate-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.donate-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
 
 .donate-card h3 {
   font-family: var(--serif);
   font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
 }
 
 .donate-detail {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--gray-800);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   word-break: break-all;
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
 }
 
-.btn-outline {
+.btn-zelle,
+.btn-paypal {
   display: inline-block;
-  border: 1px solid var(--black);
   padding: 0.75rem 1.5rem;
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-weight: 500;
-  background: var(--white);
-  color: var(--black);
+  font-weight: 600;
+  text-align: center;
   transition: all 0.2s;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.btn-outline:hover { background: var(--black); color: var(--white); }
+.btn-zelle {
+  background: #6D1ED4;
+  color: #ffffff;
+  border-color: #6D1ED4;
+}
+.btn-zelle:hover { background: #ffffff; color: #6D1ED4; }
+
+.btn-paypal {
+  background: #ffffff;
+  color: #003087;
+  border-color: #003087;
+  margin-top: 0.75rem;
+}
+.btn-paypal:hover { background: #003087; color: #ffffff; }
+
+.paypal-form {
+  margin-bottom: 0;
+}
+
+.paypal-form input[type="image"] {
+  display: block;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.paypal-form input[type="image"]:hover { opacity: 0.85; }
 
 @media (max-width: 700px) {
   .donate-grid { grid-template-columns: 1fr; }

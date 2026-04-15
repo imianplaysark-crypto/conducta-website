@@ -12,14 +12,17 @@
 </head>
 <body>
   <header class="site-header">
-    <a href="#hero" class="brand">CONDUCTA</a>
+    <a href="#hero" class="brand">
+      <img src="logo.png" alt="Conducta logo" class="brand-logo" />
+      <span>CONDUCTA</span>
+    </a>
     <nav class="nav">
       <a href="#quienes" data-i18n="nav.about">Quiénes Somos</a>
       <a href="#imagenes" data-i18n="nav.images">Imágenes</a>
       <a href="#donar" data-i18n="nav.donate">Donar</a>
       <a href="#contacto" data-i18n="nav.contact">Contacto</a>
     </nav>
-    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">EN</button>
+    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">🇺🇸 English</button>
   </header>
 
   <main>
@@ -80,15 +83,35 @@
         <h2 class="section-title" data-i18n="donate.title">Donar</h2>
         <p class="section-sub" data-i18n="donate.sub">Cada aporte se convierte en comida, abrigo y dignidad. Gracias por sumar.</p>
         <div class="donate-grid">
-          <div class="donate-card">
-            <h3>Zelle</h3>
+          <div class="donate-card donate-zelle">
+            <div class="donate-brand">
+              <svg class="donate-logo" viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg" aria-label="Zelle">
+                <rect width="120" height="48" rx="8" fill="#6D1ED4"/>
+                <text x="60" y="33" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="800" fill="#ffffff" letter-spacing="1">Zelle</text>
+              </svg>
+              <h3>Zelle</h3>
+            </div>
             <p class="donate-detail">conductaofficial@gmail.com</p>
-            <button class="btn-outline" data-copy="conductaofficial@gmail.com" data-i18n="donate.copy">Copiar correo</button>
+            <button class="btn-zelle" data-copy="conductaofficial@gmail.com" data-i18n="donate.copy">Copiar correo</button>
           </div>
-          <div class="donate-card">
-            <h3>PayPal</h3>
+          <div class="donate-card donate-paypal">
+            <div class="donate-brand">
+              <svg class="donate-logo" viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg" aria-label="PayPal">
+                <rect width="120" height="48" rx="8" fill="#ffffff" stroke="#003087" stroke-width="2"/>
+                <text x="60" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="0">
+                  <tspan fill="#003087">Pay</tspan><tspan fill="#009cde">Pal</tspan>
+                </text>
+              </svg>
+              <h3>PayPal</h3>
+            </div>
             <p class="donate-detail">paypal.me/conductadade</p>
-            <a class="btn-outline" href="https://paypal.me/conductadade" target="_blank" rel="noopener" data-i18n="donate.paypal">Donar con PayPal</a>
+            <form class="paypal-form" action="https://www.paypal.com/donate" method="post" target="_blank">
+              <input type="hidden" name="business" value="conductaofficial@gmail.com" />
+              <input type="hidden" name="no_recurring" value="0" />
+              <input type="hidden" name="currency_code" value="USD" />
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate" alt="Donate with PayPal" />
+            </form>
+            <a class="btn-paypal" href="https://paypal.me/conductadade" target="_blank" rel="noopener" data-i18n="donate.paypal">Ir a PayPal.me</a>
           </div>
         </div>
       </div>
