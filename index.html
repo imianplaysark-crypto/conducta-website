@@ -9,231 +9,116 @@
   <title>Conducta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: '#0A0A0A',
-            accent: '#00C9FF',
-          },
-          fontFamily: {
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans: ['"DM Sans"', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="font-sans text-ink bg-white antialiased">
-
-  <!-- Header -->
-  <header id="site-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-shadow duration-300">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 h-20">
-      <a href="#hero" class="flex-shrink-0">
-        <img src="nav-logo.png" alt="Conducta" class="h-9 w-auto" />
+<body>
+  <header class="site-header">
+    <a href="#hero" class="brand">
+      <img src="nav-logo.png" alt="Conducta" class="brand-logo" />
+    </a>
+    <nav class="nav">
+      <a href="#hero" data-i18n="nav.home">Inicio</a>
+      <a href="#imagenes" data-i18n="nav.images">Imágenes</a>
+      <a href="#donar" data-i18n="nav.donate">Donar</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="social-links">
+      <a class="social-ig" href="https://www.instagram.com/conducta_dade/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 00-2.13 1.38A5.9 5.9 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13.67.65 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 002.13-1.38 5.9 5.9 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
       </a>
-
-      <nav class="hidden lg:flex items-center gap-9 text-[11px] tracking-[0.2em] uppercase font-medium">
-        <a href="#hero" data-i18n="nav.home" class="hover:text-accent transition-colors">Inicio</a>
-        <a href="#quienes" data-i18n="nav.about" class="hover:text-accent transition-colors">Quiénes Somos</a>
-        <a href="#imagenes" data-i18n="nav.images" class="hover:text-accent transition-colors">Imágenes</a>
-        <a href="#donar" data-i18n="nav.donate" class="hover:text-accent transition-colors">Donar</a>
-        <a href="blog.html" data-i18n="nav.blog" class="hover:text-accent transition-colors">Blog</a>
-        <a href="#contacto" data-i18n="nav.contact" class="hover:text-accent transition-colors">Contacto</a>
-      </nav>
-
-      <div class="hidden lg:flex items-center gap-5">
-        <div class="flex items-center gap-4">
-          <a href="https://www.instagram.com/conducta_dade/" target="_blank" rel="noopener" aria-label="Instagram" class="text-ink hover:text-[#E1306C] hover:-translate-y-0.5 transition duration-200">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 00-2.13 1.38A5.9 5.9 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13.67.65 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 002.13-1.38 5.9 5.9 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@conductadade" target="_blank" rel="noopener" aria-label="TikTok" class="text-ink hover:text-black hover:-translate-y-0.5 transition duration-200">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.64a8.16 8.16 0 004.77 1.52V6.77a4.85 4.85 0 01-1.84-.08z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/conducta.dade" target="_blank" rel="noopener" aria-label="Facebook" class="text-ink hover:text-[#1877F2] hover:-translate-y-0.5 transition duration-200">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@Conductadade" target="_blank" rel="noopener" aria-label="YouTube" class="text-ink hover:text-[#FF0000] hover:-translate-y-0.5 transition duration-200">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.12C19.55 3.58 12 3.58 12 3.58s-7.55 0-9.4.5A3 3 0 00.5 6.2C0 8.06 0 12 0 12s0 3.94.5 5.8a3 3 0 002.1 2.12c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 002.1-2.12C24 15.94 24 12 24 12s0-3.94-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg>
-          </a>
-        </div>
-        <button id="lang-toggle" class="emoji-font flex items-center gap-2 border border-ink/20 px-3 py-1.5 text-[11px] tracking-[0.18em] uppercase font-medium hover:bg-ink hover:text-white transition" aria-label="Toggle language">🇺🇸 English</button>
-      </div>
-
-      <button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center w-10 h-10 -mr-2 text-ink" aria-label="Menu" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
+      <a class="social-tt" href="https://www.tiktok.com/@conductadade" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.64a8.16 8.16 0 004.77 1.52V6.77a4.85 4.85 0 01-1.84-.08z"/></svg>
+      </a>
+      <a class="social-fb" href="https://www.facebook.com/conducta.dade" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+      </a>
+      <a class="social-yt" href="https://www.youtube.com/@Conductadade" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.12C19.55 3.58 12 3.58 12 3.58s-7.55 0-9.4.5A3 3 0 00.5 6.2C0 8.06 0 12 0 12s0 3.94.5 5.8a3 3 0 002.1 2.12c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 002.1-2.12C24 15.94 24 12 24 12s0-3.94-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg>
+      </a>
     </div>
-
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="lg:hidden hidden border-t border-ink/10 bg-white">
-      <nav class="flex flex-col px-6 py-6 gap-5 text-[12px] tracking-[0.2em] uppercase font-medium">
-        <a href="#hero" data-i18n="nav.home" class="hover:text-accent">Inicio</a>
-        <a href="#quienes" data-i18n="nav.about" class="hover:text-accent">Quiénes Somos</a>
-        <a href="#imagenes" data-i18n="nav.images" class="hover:text-accent">Imágenes</a>
-        <a href="#donar" data-i18n="nav.donate" class="hover:text-accent">Donar</a>
-        <a href="blog.html" data-i18n="nav.blog" class="hover:text-accent">Blog</a>
-        <a href="#contacto" data-i18n="nav.contact" class="hover:text-accent">Contacto</a>
-      </nav>
-      <div class="px-6 pb-6 pt-4 flex items-center justify-between border-t border-ink/10">
-        <div class="flex items-center gap-4">
-          <a href="https://www.instagram.com/conducta_dade/" target="_blank" rel="noopener" aria-label="Instagram" class="text-ink hover:text-[#E1306C] transition"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 00-2.13 1.38A5.9 5.9 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13.67.65 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 002.13-1.38 5.9 5.9 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg></a>
-          <a href="https://www.tiktok.com/@conductadade" target="_blank" rel="noopener" aria-label="TikTok" class="text-ink hover:text-black transition"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.64a8.16 8.16 0 004.77 1.52V6.77a4.85 4.85 0 01-1.84-.08z"/></svg></a>
-          <a href="https://www.facebook.com/conducta.dade" target="_blank" rel="noopener" aria-label="Facebook" class="text-ink hover:text-[#1877F2] transition"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
-          <a href="https://www.youtube.com/@Conductadade" target="_blank" rel="noopener" aria-label="YouTube" class="text-ink hover:text-[#FF0000] transition"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.12C19.55 3.58 12 3.58 12 3.58s-7.55 0-9.4.5A3 3 0 00.5 6.2C0 8.06 0 12 0 12s0 3.94.5 5.8a3 3 0 002.1 2.12c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 002.1-2.12C24 15.94 24 12 24 12s0-3.94-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg></a>
-        </div>
-        <button class="lang-toggle-mobile emoji-font flex items-center gap-2 border border-ink/20 px-3 py-1.5 text-[11px] tracking-[0.18em] uppercase font-medium hover:bg-ink hover:text-white transition" aria-label="Toggle language">🇺🇸 English</button>
-      </div>
-    </div>
+    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+      <svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#b22234"/><rect y="1.23" width="24" height="1.23" fill="#fff"/><rect y="3.69" width="24" height="1.23" fill="#fff"/><rect y="6.15" width="24" height="1.23" fill="#fff"/><rect y="8.62" width="24" height="1.23" fill="#fff"/><rect y="11.08" width="24" height="1.23" fill="#fff"/><rect y="13.54" width="24" height="1.23" fill="#fff"/><rect width="9.6" height="8.62" fill="#3c3b6e"/></svg>
+      <span>English</span>
+    </button>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section id="hero" class="min-h-[88vh] flex items-center justify-center px-6 lg:px-10 py-16 bg-white">
-      <div class="flex flex-col items-center text-center max-w-2xl">
-        <img src="hero-logo.png" alt="Conducta" class="w-[420px] max-w-[90%] h-auto mb-6 drop-shadow-[0_8px_24px_rgba(0,0,0,0.18)]" />
-        <p class="font-serif italic text-xl md:text-2xl text-ink/80 leading-relaxed mb-8" data-i18n="hero.tag">
+    <section id="hero" class="hero">
+      <div class="hero-inner">
+        <img class="hero-logo" src="hero-logo.png" alt="Conducta" />
+        <p class="hero-tag" data-i18n="hero.tag">
           Documentamos la realidad diaria sin filtro y sin guión.<br />
           Somos la voz de las personas que el mundo ignora.
         </p>
-        <a href="#donar" class="inline-block bg-ink text-white px-10 py-4 text-[11px] tracking-[0.22em] uppercase font-medium border border-ink hover:bg-white hover:text-ink transition" data-i18n="hero.cta">Apoya la causa</a>
+        <a href="#donar" class="btn-primary" data-i18n="hero.cta">Apoya la causa</a>
       </div>
     </section>
 
-    <!-- About / Quiénes Somos -->
-    <section id="quienes" class="reveal py-24 lg:py-32 px-6 lg:px-10 border-t border-ink/10">
-      <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 lg:gap-20">
-        <div>
-          <p class="text-[11px] tracking-[0.28em] uppercase text-accent font-semibold mb-5 flex items-center gap-3">
-            <span class="inline-block w-12 h-px bg-accent"></span>
-            <span><span class="font-bold">01</span><span class="mx-2 text-ink/30">/</span><span data-i18n="label.mission">Misión</span></span>
-          </p>
-          <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-[1.05] tracking-tight" data-i18n="about.title">Quiénes Somos</h2>
-        </div>
-        <div class="md:col-span-2 space-y-12">
-          <p class="font-serif italic text-2xl md:text-3xl leading-snug text-ink" data-i18n="about.lead">
-            Conducta es una organización sin fines de lucro con sede en Miami que apoya a poblaciones vulnerables a través de la asistencia directa y narrativas que dan visibilidad a las comunidades que el mundo prefiere no ver.
-          </p>
-          <ul class="grid sm:grid-cols-3 gap-8">
-            <li class="border-t border-ink/15 pt-5 relative">
-              <span class="absolute top-0 left-0 w-8 h-px bg-accent -mt-px"></span>
-              <h3 class="text-[11px] tracking-[0.22em] uppercase font-semibold mb-3" data-i18n="about.p1.title">Asistencia directa</h3>
-              <p class="text-sm text-ink/70 leading-relaxed" data-i18n="about.p1.text">Distribución de alimentos y recursos esenciales para personas en situación de calle.</p>
-            </li>
-            <li class="border-t border-ink/15 pt-5 relative">
-              <span class="absolute top-0 left-0 w-8 h-px bg-accent -mt-px"></span>
-              <h3 class="text-[11px] tracking-[0.22em] uppercase font-semibold mb-3" data-i18n="about.p2.title">Conexión a programas</h3>
-              <p class="text-sm text-ink/70 leading-relaxed" data-i18n="about.p2.text">Acompañamiento hacia programas de ayuda, rehabilitación y reintegración.</p>
-            </li>
-            <li class="border-t border-ink/15 pt-5 relative">
-              <span class="absolute top-0 left-0 w-8 h-px bg-accent -mt-px"></span>
-              <h3 class="text-[11px] tracking-[0.22em] uppercase font-semibold mb-3" data-i18n="about.p3.title">Documentación</h3>
-              <p class="text-sm text-ink/70 leading-relaxed" data-i18n="about.p3.text">Trabajo documental que captura historias auténticas, sin filtro y sin guión.</p>
-            </li>
-          </ul>
+    <section id="imagenes" class="section section-alt">
+      <div class="section-inner">
+        <h2 class="section-title" data-i18n="images.title">Imágenes</h2>
+        <p class="section-sub" data-i18n="images.sub">Momentos que documentan nuestra labor.</p>
+        <div class="image-grid">
+          <figure class="img-tile"><div class="img-placeholder">01</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">02</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">03</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">04</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">05</div></figure>
+          <figure class="img-tile"><div class="img-placeholder">06</div></figure>
         </div>
       </div>
     </section>
 
-    <!-- Images -->
-    <section id="imagenes" class="reveal bg-ink text-white py-24 lg:py-32 px-6 lg:px-10">
-      <div class="max-w-7xl mx-auto">
-        <p class="text-[11px] tracking-[0.28em] uppercase text-accent font-semibold mb-5 flex items-center gap-3">
-          <span class="inline-block w-12 h-px bg-accent"></span>
-          <span><span class="font-bold">02</span><span class="mx-2 text-white/30">/</span><span data-i18n="label.work">Trabajo</span></span>
-        </p>
-        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.05] tracking-tight mb-5" data-i18n="images.title">Imágenes</h2>
-        <p class="font-serif italic text-xl md:text-2xl text-white/70 max-w-xl mb-14" data-i18n="images.sub">Momentos que documentan nuestra labor.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <figure class="aspect-[4/5] bg-white/5 border border-white/10 flex items-center justify-center font-serif italic text-3xl text-white/30">01</figure>
-          <figure class="aspect-[4/5] bg-white/5 border border-white/10 flex items-center justify-center font-serif italic text-3xl text-white/30">02</figure>
-          <figure class="aspect-[4/5] bg-white/5 border border-white/10 flex items-center justify-center font-serif italic text-3xl text-white/30">03</figure>
-          <figure class="aspect-[4/5] bg-white/5 border border-white/10 flex items-center justify-center font-serif italic text-3xl text-white/30">04</figure>
-          <figure class="aspect-[4/5] bg-white/5 border border-white/10 flex items-center justify-center font-serif italic text-3xl text-white/30">05</figure>
-          <figure class="aspect-[4/5] bg-white/5 border border-white/10 flex items-center justify-center font-serif italic text-3xl text-white/30">06</figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- Donate -->
-    <section id="donar" class="reveal py-24 lg:py-32 px-6 lg:px-10">
-      <div class="max-w-7xl mx-auto">
-        <p class="text-[11px] tracking-[0.28em] uppercase text-accent font-semibold mb-5 flex items-center gap-3">
-          <span class="inline-block w-12 h-px bg-accent"></span>
-          <span><span class="font-bold">03</span><span class="mx-2 text-ink/30">/</span><span data-i18n="label.support">Apoyo</span></span>
-        </p>
-        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-[1.05] tracking-tight mb-5" data-i18n="donate.title">Donar</h2>
-        <p class="font-serif italic text-xl md:text-2xl text-ink/70 max-w-2xl mb-12" data-i18n="donate.sub">Cada aporte se convierte en comida, abrigo y sonrisas. El uso de las donaciones se muestra en nuestra sección de blog.</p>
-
-        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
-          <div class="border border-ink/15 p-10 lg:p-14 bg-white hover:border-ink transition flex flex-col">
-            <div class="mb-6">
-              <span class="text-[#6D1ED4] font-black italic text-3xl tracking-tight" style="font-family: Arial, Helvetica, sans-serif;">Zelle</span>
+    <section id="donar" class="section">
+      <div class="section-inner">
+        <h2 class="section-title" data-i18n="donate.title">Donar</h2>
+        <p class="section-sub" data-i18n="donate.sub">Cada aporte se convierte en comida, abrigo y sonrisas. El uso de las donaciones se muestra en nuestra sección de blog.</p>
+        <a href="blog.html" class="btn-ghost btn-blog-cta" data-i18n="donate.blogCta">Ver Blog</a>
+        <div class="donate-grid">
+          <div class="donate-card donate-zelle">
+            <div class="donate-brand">
+              <svg class="donate-logo" viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg" aria-label="Zelle">
+                <text x="0" y="35" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900" fill="#6D1ED4" letter-spacing="-0.5">Zelle</text>
+              </svg>
             </div>
-            <p class="font-mono text-sm text-ink/70 break-all mb-8">conductaofficial@gmail.com</p>
-            <button class="self-start inline-flex items-center justify-center px-5 py-2 h-[38px] text-[13px] font-bold uppercase tracking-wider bg-[#6D1ED4] text-white border border-[#6D1ED4] rounded hover:bg-white hover:text-[#6D1ED4] transition" data-copy="conductaofficial@gmail.com" data-i18n="donate.copy">Copiar correo</button>
+            <p class="donate-detail">conductaofficial@gmail.com</p>
+            <button class="btn-zelle" data-copy="conductaofficial@gmail.com" data-i18n="donate.copy">Copiar correo</button>
           </div>
-
-          <div class="border border-ink/15 p-10 lg:p-14 bg-white hover:border-ink transition flex flex-col">
-            <div class="mb-6">
-              <span class="font-black italic text-3xl tracking-tight" style="font-family: 'Arial Black', Arial, Helvetica, sans-serif;"><span class="text-[#003087]">Pay</span><span class="text-[#009CDE]">Pal</span></span>
+          <div class="donate-card donate-paypal">
+            <div class="donate-brand">
+              <svg class="donate-logo" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg" aria-label="PayPal">
+                <text x="0" y="34" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="32" font-style="italic" font-weight="900" letter-spacing="-1.2">
+                  <tspan fill="#003087">Pay</tspan><tspan fill="#009CDE">Pal</tspan>
+                </text>
+              </svg>
             </div>
-            <p class="text-sm text-ink/70 mb-8 leading-relaxed" data-i18n="donate.paypalNote">Puedes usar tarjeta de crédito o débito, sin necesidad de iniciar sesión.</p>
-            <form class="m-0" action="https://www.paypal.com/donate" method="post" target="_top">
+            <p class="donate-note" data-i18n="donate.paypalNote">Puedes usar tarjeta de crédito o débito, sin necesidad de iniciar sesión.</p>
+            <form class="paypal-form" action="https://www.paypal.com/donate" method="post" target="_top">
               <input type="hidden" name="business" value="conductaofficial@gmail.com" />
               <input type="hidden" name="no_recurring" value="0" />
               <input type="hidden" name="item_name" value="Conducta Nonprofit Donation" />
               <input type="hidden" name="currency_code" value="USD" />
-              <button type="submit" class="self-start inline-flex items-center justify-center px-5 py-2 h-[38px] text-[13px] font-bold uppercase tracking-wider bg-[#FFC439] text-[#003087] border border-[#FFC439] rounded hover:bg-[#F4B819] transition" data-i18n="donate.paypal">Donar con PayPal</button>
+              <button type="submit" class="btn-paypal" data-i18n="donate.paypal">Donar con PayPal</button>
             </form>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Blog teaser -->
-    <section id="blog" class="reveal py-24 lg:py-32 px-6 lg:px-10 bg-neutral-50 border-t border-ink/10">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div>
-            <p class="text-[11px] tracking-[0.28em] uppercase text-accent font-semibold mb-5 flex items-center gap-3">
-              <span class="inline-block w-12 h-px bg-accent"></span>
-              <span><span class="font-bold">04</span><span class="mx-2 text-ink/30">/</span><span data-i18n="label.diary">Diario</span></span>
-            </p>
-            <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-[1.05] tracking-tight" data-i18n="blog.title">Blog</h2>
-          </div>
-          <a href="blog.html" class="self-start md:self-end inline-block border border-ink px-6 py-3 text-[11px] tracking-[0.22em] uppercase font-medium text-ink hover:bg-ink hover:text-white transition" data-i18n="donate.blogCta">Ver Blog</a>
-        </div>
-        <div id="blog-teaser-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <p class="font-serif italic text-ink/50" data-i18n="blog.loading">Cargando publicaciones…</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contacto" class="reveal py-24 lg:py-32 px-6 lg:px-10 border-t border-ink/10">
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="text-[11px] tracking-[0.28em] uppercase text-accent font-semibold mb-5 flex items-center justify-center gap-3">
-          <span class="inline-block w-12 h-px bg-accent"></span>
-          <span><span class="font-bold">05</span><span class="mx-2 text-ink/30">/</span><span data-i18n="label.contact">Contacto</span></span>
-        </p>
-        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-[1.05] tracking-tight mb-6" data-i18n="contact.title">Contacto</h2>
-        <p class="font-serif italic text-xl md:text-2xl text-ink/70 mb-10" data-i18n="contact.text">¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.</p>
-        <a class="inline-block font-serif italic text-2xl md:text-4xl text-ink border-b border-ink pb-1 hover:text-accent hover:border-accent transition break-all" href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a>
+    <section id="contacto" class="section section-alt">
+      <div class="section-inner contact-inner">
+        <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
+        <p class="contact-text" data-i18n="contact.text">¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.</p>
+        <a class="contact-email" href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-ink/10 py-8 px-6 lg:px-10">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-ink/60">
-      <p>© <span id="year"></span> Conducta · Miami</p>
-      <a class="font-mono normal-case tracking-normal hover:text-accent transition" href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a>
-    </div>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Conducta · Miami</p>
+    <p class="footer-tag" data-i18n="footer.tag">Sin filtro. Sin guión.</p>
   </footer>
 
   <script src="script.js"></script>

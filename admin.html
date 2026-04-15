@@ -9,89 +9,61 @@
   <title>Admin · Conducta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { ink: '#0A0A0A', accent: '#00C9FF' },
-          fontFamily: {
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans: ['"DM Sans"', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="font-sans text-ink bg-white antialiased">
-
-  <header id="site-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-shadow duration-300">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 h-20">
-      <a href="index.html#hero" class="flex-shrink-0">
-        <img src="nav-logo.png" alt="Conducta" class="h-9 w-auto" />
-      </a>
-      <nav class="hidden lg:flex items-center gap-9 text-[11px] tracking-[0.2em] uppercase font-medium">
-        <a href="index.html" data-i18n="nav.home" class="hover:text-accent transition-colors">Inicio</a>
-        <a href="blog.html" data-i18n="nav.blog" class="hover:text-accent transition-colors">Blog</a>
-      </nav>
-      <div class="hidden lg:flex items-center">
-        <button id="lang-toggle" class="emoji-font flex items-center gap-2 border border-ink/20 px-3 py-1.5 text-[11px] tracking-[0.18em] uppercase font-medium hover:bg-ink hover:text-white transition" aria-label="Toggle language">🇺🇸 English</button>
-      </div>
-      <button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center w-10 h-10 -mr-2 text-ink" aria-label="Menu" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="lg:hidden hidden border-t border-ink/10 bg-white">
-      <nav class="flex flex-col px-6 py-6 gap-5 text-[12px] tracking-[0.2em] uppercase font-medium">
-        <a href="index.html" data-i18n="nav.home" class="hover:text-accent">Inicio</a>
-        <a href="blog.html" data-i18n="nav.blog" class="hover:text-accent">Blog</a>
-      </nav>
-      <div class="px-6 pb-6 pt-4 border-t border-ink/10 flex justify-end">
-        <button class="lang-toggle-mobile emoji-font flex items-center gap-2 border border-ink/20 px-3 py-1.5 text-[11px] tracking-[0.18em] uppercase font-medium hover:bg-ink hover:text-white transition" aria-label="Toggle language">🇺🇸 English</button>
-      </div>
-    </div>
+<body>
+  <header class="site-header">
+    <a href="index.html#hero" class="brand">
+      <img src="nav-logo.png" alt="Conducta" class="brand-logo" />
+    </a>
+    <nav class="nav">
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+    </nav>
+    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+      <svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#b22234"/><rect y="1.23" width="24" height="1.23" fill="#fff"/><rect y="3.69" width="24" height="1.23" fill="#fff"/><rect y="6.15" width="24" height="1.23" fill="#fff"/><rect y="8.62" width="24" height="1.23" fill="#fff"/><rect y="11.08" width="24" height="1.23" fill="#fff"/><rect y="13.54" width="24" height="1.23" fill="#fff"/><rect width="9.6" height="8.62" fill="#3c3b6e"/></svg>
+      <span>English</span>
+    </button>
   </header>
 
   <main>
-    <section class="reveal pt-24 lg:pt-32 pb-24 lg:pb-32 px-6 lg:px-10">
-      <div class="max-w-3xl mx-auto">
-        <p class="text-[11px] tracking-[0.28em] uppercase text-accent font-semibold mb-5 flex items-center gap-3">
-          <span class="inline-block w-12 h-px bg-accent"></span>
-          <span>Admin</span>
-        </p>
-        <h1 class="font-serif text-5xl md:text-6xl font-medium text-ink leading-[1.02] tracking-tight mb-5" data-i18n="admin.title">Nueva publicación</h1>
-        <p class="font-serif italic text-xl md:text-2xl text-ink/70 mb-10" data-i18n="admin.sub">Completa el formulario y copia el JSON generado en posts.json en GitHub.</p>
+    <section class="section">
+      <div class="section-inner admin-inner">
+        <h1 class="section-title" data-i18n="admin.title">Nueva publicación</h1>
+        <p class="section-sub" data-i18n="admin.sub">Completa el formulario y copia el JSON generado en posts.json en GitHub.</p>
 
-        <form id="admin-form" class="flex flex-col gap-6" autocomplete="off">
-          <label class="flex flex-col gap-2">
-            <span class="text-[11px] tracking-[0.22em] uppercase font-semibold text-ink" data-i18n="admin.postTitle">Título del post</span>
-            <input type="text" id="f-title" required class="border border-ink/20 px-4 py-3 text-base focus:outline-none focus:border-accent transition" />
+        <form id="admin-form" class="admin-form" autocomplete="off">
+          <label class="admin-field">
+            <span data-i18n="admin.postTitle">Título del post</span>
+            <input type="text" id="f-title" required />
           </label>
-          <label class="flex flex-col gap-2">
-            <span class="text-[11px] tracking-[0.22em] uppercase font-semibold text-ink" data-i18n="admin.postDate">Fecha</span>
-            <input type="date" id="f-date" required class="border border-ink/20 px-4 py-3 text-base focus:outline-none focus:border-accent transition" />
+
+          <label class="admin-field">
+            <span data-i18n="admin.postDate">Fecha</span>
+            <input type="date" id="f-date" required />
           </label>
-          <label class="flex flex-col gap-2">
-            <span class="text-[11px] tracking-[0.22em] uppercase font-semibold text-ink" data-i18n="admin.postImage">URL de imagen</span>
-            <input type="url" id="f-image" placeholder="https://…" class="border border-ink/20 px-4 py-3 text-base focus:outline-none focus:border-accent transition" />
+
+          <label class="admin-field">
+            <span data-i18n="admin.postImage">URL de imagen</span>
+            <input type="url" id="f-image" placeholder="https://…" />
           </label>
-          <label class="flex flex-col gap-2">
-            <span class="text-[11px] tracking-[0.22em] uppercase font-semibold text-ink" data-i18n="admin.postBody">Contenido</span>
-            <textarea id="f-body" rows="8" required class="border border-ink/20 px-4 py-3 text-sm font-mono leading-relaxed focus:outline-none focus:border-accent transition resize-y"></textarea>
+
+          <label class="admin-field">
+            <span data-i18n="admin.postBody">Contenido</span>
+            <textarea id="f-body" rows="8" required></textarea>
           </label>
-          <button type="submit" class="self-start inline-block bg-ink text-white px-8 py-3 text-[11px] tracking-[0.22em] uppercase font-medium border border-ink hover:bg-white hover:text-ink transition mt-2" data-i18n="admin.generate">Generar JSON</button>
+
+          <button type="submit" class="btn-primary admin-generate" data-i18n="admin.generate">Generar JSON</button>
         </form>
 
-        <div id="admin-output" class="mt-12 border-t border-ink/15 pt-10" hidden>
-          <div class="flex items-center justify-between gap-4 mb-4">
-            <h3 class="font-serif italic text-2xl font-medium" data-i18n="admin.outputTitle">JSON generado</h3>
-            <button type="button" id="admin-copy" class="border border-ink px-5 py-2 text-[11px] tracking-[0.22em] uppercase font-medium hover:bg-ink hover:text-white transition" data-i18n="admin.copy">Copiar</button>
+        <div id="admin-output" class="admin-output" hidden>
+          <div class="admin-output-header">
+            <h3 data-i18n="admin.outputTitle">JSON generado</h3>
+            <button type="button" id="admin-copy" class="btn-ghost" data-i18n="admin.copy">Copiar</button>
           </div>
-          <pre id="admin-json" class="bg-ink text-white p-6 font-mono text-sm leading-relaxed overflow-x-auto whitespace-pre-wrap break-words"></pre>
-          <ol class="mt-6 pl-5 list-decimal text-sm text-ink/70 leading-relaxed space-y-1">
+          <pre id="admin-json" class="admin-json"></pre>
+          <ol class="admin-steps">
             <li data-i18n="admin.step1">Abre posts.json en GitHub.</li>
             <li data-i18n="admin.step2">Pega este objeto dentro del array [ … ], separado por una coma si ya hay posts.</li>
             <li data-i18n="admin.step3">Haz commit del cambio. Vercel redeploya automáticamente.</li>
@@ -101,11 +73,9 @@
     </section>
   </main>
 
-  <footer class="border-t border-ink/10 py-8 px-6 lg:px-10">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-ink/60">
-      <p>© <span id="year"></span> Conducta · Miami</p>
-      <a class="font-mono normal-case tracking-normal hover:text-accent transition" href="mailto:conductaofficial@gmail.com">conductaofficial@gmail.com</a>
-    </div>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Conducta · Miami</p>
+    <p class="footer-tag" data-i18n="footer.tag">Sin filtro. Sin guión.</p>
   </footer>
 
   <script src="script.js"></script>
@@ -115,6 +85,10 @@
       const output = document.getElementById("admin-output");
       const jsonEl = document.getElementById("admin-json");
       const copyBtn = document.getElementById("admin-copy");
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+      }
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
