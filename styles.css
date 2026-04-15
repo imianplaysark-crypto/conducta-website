@@ -1,13 +1,13 @@
 :root {
-  /* Dark theme — semantic names retained from light theme; values inverted. */
-  --black: #F2F2F2;            /* primary text / "ink" — now light */
-  --white: #0B0B10;            /* page background — now near-black */
-  --conducta-dark: #16161C;    /* slightly elevated dark surface */
-  --gray-50: #14141A;          /* darkest surface */
+  /* Dark plum theme — single purple-tinted tone throughout. */
+  --black: #F2ECF7;            /* primary text — warm off-white */
+  --white: #1A0F26;            /* page background — plum-black */
+  --conducta-dark: #1A0F26;    /* same base tone, used everywhere */
+  --gray-50: #1A0F26;          /* surfaces match the base — single tone */
   --gray-100: rgba(255, 255, 255, 0.10); /* hairline borders */
-  --gray-300: #C8C8D0;         /* secondary light text */
-  --gray-500: #8A8A95;         /* muted text (mid gray, works both modes) */
-  --gray-800: #D8D8DE;         /* near-primary text on dark */
+  --gray-300: #BAB3C5;         /* secondary light text */
+  --gray-500: #8D8598;         /* muted text */
+  --gray-800: #D8D2E2;         /* near-primary text */
   --max: 1200px;
   --pad: clamp(1.25rem, 4vw, 3rem);
   --serif: "Playfair Display", Georgia, serif;
@@ -42,7 +42,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem var(--pad);
-  background: rgba(11, 11, 16, 0.85);
+  background: rgba(26, 15, 38, 0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--gray-100);
@@ -508,7 +508,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--serif);
   font-size: 2rem;
   color: var(--gray-500);
-  background: linear-gradient(135deg, #1A1A22 0%, #0E0E14 100%);
+  background: linear-gradient(135deg, #241830 0%, #120A1A 100%);
 }
 
 @media (max-width: 800px) {
