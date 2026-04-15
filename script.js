@@ -12,16 +12,11 @@ const translations = {
     "nav.contact": "Contacto",
 
     "hero.issue": "Edición 01 · Miami · 2026",
-    "hero.headline": "Sin filtro. <em>Sin guión.</em> Sin olvido.",
+    "hero.headline": "La realidad no se <em>edita</em>.",
     "hero.lede": "Documentamos la realidad diaria de las personas que el mundo ignora — y convertimos cada aporte en comida, abrigo y dignidad en las calles de Miami.",
     "hero.cta": "<span>Apoya la causa</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
-    "hero.learn": "Nuestra misión",
-    "hero.scroll": "Desplaza",
-    "pullquote.text": "Cada aporte se convierte en <em>comida, abrigo y sonrisas</em>.",
-    "pullquote.byline": "Conducta · Miami",
 
     "about.eyebrow": "Nuestra misión",
-    "about.title": "Voces que el mundo prefiere no escuchar.",
     "about.lead": "Conducta es una organización sin fines de lucro con sede en Miami que apoya a poblaciones vulnerables a través de la asistencia directa y narrativas que dan visibilidad a las comunidades que el mundo prefiere no ver.",
     "about.p1.title": "Asistencia directa",
     "about.p1.text": "Distribución de alimentos y recursos esenciales para personas en situación de calle.",
@@ -50,11 +45,9 @@ const translations = {
     "blog.eyebrow": "Últimas historias",
     "blog.title": "Blog",
     "blog.sub": "Crónicas, actualizaciones y el uso transparente de cada donación.",
-    "blog.viewAll": "<span>Ver todas las historias</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
     "blog.loading": "Cargando publicaciones…",
     "blog.empty": "No hay publicaciones todavía.",
     "blog.error": "Error cargando publicaciones.",
-    "blog.read": "Leer",
 
     "admin.title": "Nueva publicación",
     "admin.sub": "Completa el formulario y copia el JSON generado en posts.json en GitHub.",
@@ -93,16 +86,11 @@ const translations = {
     "nav.contact": "Contact",
 
     "hero.issue": "Issue 01 · Miami · 2026",
-    "hero.headline": "Unfiltered. <em>Unscripted.</em> Unforgotten.",
+    "hero.headline": "Reality doesn't get <em>edited</em>.",
     "hero.lede": "We document the daily reality of the people the world ignores — and turn every contribution into food, shelter, and dignity on the streets of Miami.",
     "hero.cta": "<span>Support the cause</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
-    "hero.learn": "Our mission",
-    "hero.scroll": "Scroll",
-    "pullquote.text": "Every contribution becomes <em>food, shelter, and smiles</em>.",
-    "pullquote.byline": "Conducta · Miami",
 
     "about.eyebrow": "Our mission",
-    "about.title": "Voices the world prefers not to hear.",
     "about.lead": "Conducta is a Miami-based nonprofit supporting vulnerable populations through direct assistance and storytelling that brings visibility to the communities the world prefers not to see.",
     "about.p1.title": "Direct assistance",
     "about.p1.text": "Distribution of food and essential resources to people experiencing homelessness.",
@@ -131,11 +119,9 @@ const translations = {
     "blog.eyebrow": "Latest stories",
     "blog.title": "Blog",
     "blog.sub": "Chronicles, updates, and the transparent use of every donation.",
-    "blog.viewAll": "<span>View all stories</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
     "blog.loading": "Loading posts…",
     "blog.empty": "No posts yet.",
     "blog.error": "Error loading posts.",
-    "blog.read": "Read",
 
     "admin.title": "New post",
     "admin.sub": "Fill the form and paste the generated JSON into posts.json on GitHub.",
@@ -265,47 +251,6 @@ async function renderBlog(lang) {
   }
 }
 
-function buildExcerpt(body, max = 140) {
-  const plain = String(body || "").replace(/\s+/g, " ").trim();
-  if (plain.length <= max) return plain;
-  return plain.slice(0, max).replace(/\s+\S*$/, "") + "…";
-}
-
-function renderTeaserCard(p, lang) {
-  const img = p.image
-    ? `<div class="teaser-image"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title || "")}" loading="lazy" /></div>`
-    : `<div class="teaser-image"></div>`;
-  const date = formatPostDate(p.date, lang);
-  const excerpt = buildExcerpt(p.body);
-  return `
-    <a href="blog.html" class="teaser-card">
-      ${img}
-      <div class="teaser-body">
-        <div class="teaser-date">${escapeHtml(date)}</div>
-        <h3 class="teaser-title">${escapeHtml(p.title || "")}</h3>
-        <p class="teaser-excerpt">${escapeHtml(excerpt)}</p>
-        <span class="teaser-read">${translations[lang]["blog.read"]} →</span>
-      </div>
-    </a>
-  `;
-}
-
-async function renderBlogTeaser(lang) {
-  const container = document.getElementById("blog-teaser-posts");
-  if (!container) return;
-  try {
-    const posts = await loadBlogPosts();
-    if (!posts.length) {
-      container.innerHTML = `<p class="teaser-empty">${translations[lang]["blog.empty"]}</p>`;
-      return;
-    }
-    const sorted = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
-    container.innerHTML = sorted.map((p) => renderTeaserCard(p, lang)).join("");
-  } catch (e) {
-    container.innerHTML = `<p class="teaser-empty">${translations[lang]["blog.error"]}</p>`;
-  }
-}
-
 function initMobileMenu() {
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
@@ -364,7 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentLang = detectLang();
   applyLang(currentLang);
   renderBlog(currentLang);
-  renderBlogTeaser(currentLang);
 
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) {
@@ -372,7 +316,6 @@ document.addEventListener("DOMContentLoaded", () => {
       currentLang = currentLang === "es" ? "en" : "es";
       applyLang(currentLang);
       renderBlog(currentLang);
-      renderBlogTeaser(currentLang);
     });
   }
 

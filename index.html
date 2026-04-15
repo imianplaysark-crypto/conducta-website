@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=editorial-1" />
+  <link rel="stylesheet" href="styles.css?v=editorial-2" />
 </head>
 <body>
   <a href="#main" class="skip" data-i18n="a11y.skip">Saltar al contenido</a>
@@ -25,7 +25,7 @@
       <a href="#hero" data-i18n="nav.home">Inicio</a>
       <a href="#about" data-i18n="nav.about">Quiénes Somos</a>
       <a href="#imagenes" data-i18n="nav.images">Imágenes</a>
-      <a href="#blog-teaser" data-i18n="nav.blog">Blog</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
       <a href="#contacto" data-i18n="nav.contact">Contacto</a>
     </nav>
 
@@ -101,7 +101,7 @@
         <img class="hero-logo reveal" src="hero-logo.png" alt="Conducta" />
 
         <h1 id="hero-headline" class="hero-headline reveal" data-i18n="hero.headline">
-          Sin filtro. <em>Sin guión.</em> Sin olvido.
+          La realidad no se <em>edita</em>.
         </h1>
 
         <p class="hero-lede reveal" data-i18n="hero.lede">
@@ -113,23 +113,16 @@
             <span>Apoya la causa</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="#about" class="btn btn-ghost" data-i18n="hero.learn">Nuestra misión</a>
         </div>
-      </div>
-      <div class="hero-scroll" aria-hidden="true">
-        <span data-i18n="hero.scroll">Desplaza</span>
       </div>
     </section>
 
     <section id="about" class="section" aria-labelledby="about-title">
       <div class="section-inner">
-        <header class="section-header reveal">
+        <header class="section-header section-header--meta-only reveal">
           <div class="section-meta">
             <span class="section-num">N.º 01</span>
-            <span class="section-meta-label" data-i18n="about.eyebrow">Nuestra misión</span>
-          </div>
-          <div class="section-head-body">
-            <h2 id="about-title" class="section-title" data-i18n="about.title">Voces que el mundo prefiere no escuchar.</h2>
+            <h2 id="about-title" class="section-meta-label" data-i18n="about.eyebrow">Nuestra misión</h2>
           </div>
         </header>
 
@@ -165,18 +158,6 @@
       </div>
     </section>
 
-    <section class="pullquote-section" aria-labelledby="pullquote">
-      <div class="pullquote-inner">
-        <span class="pullquote-mark" aria-hidden="true">“</span>
-        <p id="pullquote" class="pullquote reveal" data-i18n="pullquote.text">
-          Cada aporte se convierte en <em>comida, abrigo y sonrisas</em>.
-        </p>
-        <div class="pullquote-byline reveal" data-i18n="pullquote.byline">
-          Conducta · Miami
-        </div>
-      </div>
-    </section>
-
     <section id="imagenes" class="section" aria-labelledby="images-title">
       <div class="section-inner">
         <header class="section-header reveal">
@@ -201,37 +182,11 @@
       </div>
     </section>
 
-    <section id="blog-teaser" class="section" aria-labelledby="blog-teaser-title">
-      <div class="section-inner">
-        <header class="section-header reveal">
-          <div class="section-meta">
-            <span class="section-num">N.º 03</span>
-            <span class="section-meta-label" data-i18n="blog.eyebrow">Últimas historias</span>
-          </div>
-          <div class="section-head-body">
-            <h2 id="blog-teaser-title" class="section-title" data-i18n="blog.title">Blog</h2>
-            <p class="section-sub" data-i18n="blog.sub">Crónicas, actualizaciones y el uso transparente de cada donación.</p>
-          </div>
-        </header>
-
-        <div id="blog-teaser-posts" class="blog-teaser reveal">
-          <p class="teaser-empty" data-i18n="blog.loading">Cargando publicaciones…</p>
-        </div>
-
-        <div style="margin-top: 3rem; display: flex; justify-content: flex-end;">
-          <a href="blog.html" class="btn btn-accent" data-i18n="blog.viewAll">
-            <span>Ver todas las historias</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
     <section id="donar" class="section" aria-labelledby="donate-title">
       <div class="section-inner">
         <header class="section-header reveal">
           <div class="section-meta">
-            <span class="section-num">N.º 04</span>
+            <span class="section-num">N.º 03</span>
             <span class="section-meta-label" data-i18n="donate.eyebrow">Apóyanos</span>
           </div>
           <div class="section-head-body">
@@ -289,7 +244,7 @@
       <div class="section-inner">
         <header class="section-header reveal" style="justify-items: center; text-align: center;">
           <div class="section-meta">
-            <span class="section-num">N.º 05</span>
+            <span class="section-num">N.º 04</span>
             <span class="section-meta-label" data-i18n="contact.eyebrow">En contacto</span>
           </div>
           <div class="section-head-body">
@@ -350,6 +305,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=editorial-1"></script>
+  <script src="script.js?v=editorial-2"></script>
 </body>
 </html>
