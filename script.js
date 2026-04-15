@@ -1,16 +1,17 @@
-const FLAG_US = '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#b22234"/><rect y="1.23" width="24" height="1.23" fill="#fff"/><rect y="3.69" width="24" height="1.23" fill="#fff"/><rect y="6.15" width="24" height="1.23" fill="#fff"/><rect y="8.62" width="24" height="1.23" fill="#fff"/><rect y="11.08" width="24" height="1.23" fill="#fff"/><rect y="13.54" width="24" height="1.23" fill="#fff"/><rect width="9.6" height="8.62" fill="#3c3b6e"/></svg>';
-const FLAG_ES = '<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#c60b1e"/><rect y="4" width="24" height="8" fill="#ffc400"/></svg>';
-
 const translations = {
   es: {
+    "nav.home": "Inicio",
     "nav.about": "Quiénes Somos",
     "nav.images": "Imágenes",
     "nav.donate": "Donar",
     "nav.blog": "Blog",
     "nav.contact": "Contacto",
-    "nav.home": "Inicio",
+    "label.mission": "Misión",
+    "label.work": "Trabajo",
+    "label.support": "Apoyo",
+    "label.diary": "Diario",
+    "label.contact": "Contacto",
     "hero.tag": "Documentamos la realidad diaria sin filtro y sin guión.<br />Somos la voz de las personas que el mundo ignora.",
-    "hero.location": "Miami · Sin fines de lucro",
     "hero.cta": "Apoya la causa",
     "about.title": "Quiénes Somos",
     "about.lead": "Conducta es una organización sin fines de lucro con sede en Miami que apoya a poblaciones vulnerables a través de la asistencia directa y narrativas que dan visibilidad a las comunidades que el mundo prefiere no ver.",
@@ -33,6 +34,7 @@ const translations = {
     "blog.loading": "Cargando publicaciones…",
     "blog.empty": "No hay publicaciones todavía.",
     "blog.error": "Error cargando publicaciones.",
+    "blog.read": "Leer",
     "admin.title": "Nueva publicación",
     "admin.sub": "Completa el formulario y copia el JSON generado en posts.json en GitHub.",
     "admin.postTitle": "Título del post",
@@ -47,20 +49,23 @@ const translations = {
     "admin.step3": "Haz commit del cambio. Vercel redeploya automáticamente.",
     "contact.title": "Contacto",
     "contact.text": "¿Quieres colaborar, ofrecer recursos o conocer más sobre nuestro trabajo? Escríbenos.",
-    "footer.tag": "Sin filtro. Sin guión.",
     "toast.copied": "Correo copiado",
-    "lang.toggle": FLAG_US + "<span>English</span>",
+    "lang.toggle": "🇺🇸 English",
     "meta.description": "Conducta — Documentamos la realidad diaria sin filtro y sin guión. Somos la voz de las personas que el mundo ignora.",
   },
   en: {
+    "nav.home": "Home",
     "nav.about": "About",
     "nav.images": "Images",
     "nav.donate": "Donate",
     "nav.blog": "Blog",
     "nav.contact": "Contact",
-    "nav.home": "Home",
+    "label.mission": "Mission",
+    "label.work": "Work",
+    "label.support": "Support",
+    "label.diary": "Diary",
+    "label.contact": "Contact",
     "hero.tag": "We document daily reality unfiltered and unscripted.<br />We are the voice of the people the world ignores.",
-    "hero.location": "Miami · Nonprofit",
     "hero.cta": "Support the cause",
     "about.title": "About Us",
     "about.lead": "Conducta is a Miami-based nonprofit supporting vulnerable populations through direct assistance and storytelling that brings visibility to the communities the world prefers not to see.",
@@ -83,6 +88,7 @@ const translations = {
     "blog.loading": "Loading posts…",
     "blog.empty": "No posts yet.",
     "blog.error": "Error loading posts.",
+    "blog.read": "Read",
     "admin.title": "New post",
     "admin.sub": "Fill the form and paste the generated JSON into posts.json on GitHub.",
     "admin.postTitle": "Post title",
@@ -97,9 +103,8 @@ const translations = {
     "admin.step3": "Commit the change. Vercel redeploys automatically.",
     "contact.title": "Contact",
     "contact.text": "Want to collaborate, offer resources, or learn more about our work? Get in touch.",
-    "footer.tag": "Unfiltered. Unscripted.",
     "toast.copied": "Email copied",
-    "lang.toggle": FLAG_ES + "<span>Español</span>",
+    "lang.toggle": "🇪🇸 Español",
     "meta.description": "Conducta — We document daily reality unfiltered and unscripted. We are the voice of the people the world ignores.",
   },
 };
@@ -110,14 +115,15 @@ function applyLang(lang) {
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (dict[key]) el.innerHTML = dict[key];
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
   });
 
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.setAttribute("content", dict["meta.description"]);
 
-  const toggle = document.getElementById("lang-toggle");
-  if (toggle) toggle.innerHTML = dict["lang.toggle"];
+  document.querySelectorAll("#lang-toggle, .lang-toggle-mobile").forEach((btn) => {
+    btn.textContent = dict["lang.toggle"];
+  });
 
   try { localStorage.setItem("conducta-lang", lang); } catch (e) {}
 }
@@ -135,12 +141,17 @@ function showToast(msg) {
   let toast = document.querySelector(".toast");
   if (!toast) {
     toast = document.createElement("div");
-    toast.className = "toast";
+    toast.className = "toast fixed left-1/2 -translate-x-1/2 bottom-8 z-50 bg-ink text-white px-6 py-3 text-[11px] tracking-[0.22em] uppercase font-medium shadow-xl opacity-0 translate-y-4 pointer-events-none transition-all duration-300";
     document.body.appendChild(toast);
   }
   toast.textContent = msg;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 2200);
+  toast.classList.remove("opacity-0", "translate-y-4");
+  toast.classList.add("opacity-100", "translate-y-0");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => {
+    toast.classList.add("opacity-0", "translate-y-4");
+    toast.classList.remove("opacity-100", "translate-y-0");
+  }, 2200);
 }
 
 let blogPostsCache = null;
@@ -165,40 +176,73 @@ function formatPostDate(iso, lang) {
   return d.toLocaleDateString(lang === "en" ? "en-US" : "es-ES", { year: "numeric", month: "long", day: "numeric" });
 }
 
-function renderPost(p, lang) {
+function renderPostCard(p, lang, opts = {}) {
+  const excerptLength = opts.excerpt || 0;
   const img = p.image
-    ? `<div class="blog-post-image"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title || "")}" loading="lazy" /></div>`
+    ? `<div class="aspect-[16/10] overflow-hidden bg-ink/5 mb-5"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title || "")}" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]" /></div>`
+    : `<div class="aspect-[16/10] bg-ink/5 mb-5 flex items-center justify-center font-serif italic text-3xl text-ink/20">Conducta</div>`;
+  const date = formatPostDate(p.date, lang);
+  const rawBody = (p.body || "").replace(/\s+/g, " ").trim();
+  const excerpt = excerptLength > 0 && rawBody.length > excerptLength
+    ? rawBody.slice(0, excerptLength).trim() + "…"
+    : rawBody;
+  return `
+    <article class="group flex flex-col">
+      ${img}
+      <time class="block text-[10px] tracking-[0.22em] uppercase text-ink/50 font-medium mb-3">${escapeHtml(date)}</time>
+      <h3 class="font-serif italic text-2xl md:text-3xl font-medium text-ink leading-[1.15] mb-3">${escapeHtml(p.title || "")}</h3>
+      ${excerpt ? `<p class="text-sm text-ink/70 leading-relaxed">${escapeHtml(excerpt)}</p>` : ""}
+    </article>
+  `;
+}
+
+function renderFullPost(p, lang) {
+  const img = p.image
+    ? `<div class="aspect-[16/9] overflow-hidden bg-ink/5 mb-8"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title || "")}" loading="lazy" class="w-full h-full object-cover" /></div>`
     : "";
   const date = formatPostDate(p.date, lang);
   const bodyParas = escapeHtml(p.body || "")
     .split(/\n\n+/)
-    .map((para) => `<p>${para.replace(/\n/g, "<br />")}</p>`)
+    .map((para) => `<p class="text-[17px] leading-[1.75] text-ink/80 mb-5">${para.replace(/\n/g, "<br />")}</p>`)
     .join("");
   return `
-    <article class="blog-post">
+    <article class="flex flex-col">
       ${img}
-      <div class="blog-post-content">
-        <time class="blog-post-date">${escapeHtml(date)}</time>
-        <h2 class="blog-post-title">${escapeHtml(p.title || "")}</h2>
-        <div class="blog-post-body">${bodyParas}</div>
-      </div>
+      <time class="block text-[10px] tracking-[0.22em] uppercase text-ink/50 font-medium mb-3">${escapeHtml(date)}</time>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-medium text-ink leading-[1.12] mb-5">${escapeHtml(p.title || "")}</h2>
+      <div>${bodyParas}</div>
     </article>
   `;
 }
 
 async function renderBlog(lang) {
-  const container = document.getElementById("blog-posts");
-  if (!container) return;
+  const fullContainer = document.getElementById("blog-posts");
+  const teaserContainer = document.getElementById("blog-teaser-grid");
+
+  if (!fullContainer && !teaserContainer) return;
+
   try {
     const posts = await loadBlogPosts();
-    if (!posts.length) {
-      container.innerHTML = `<p class="blog-empty">${translations[lang]["blog.empty"]}</p>`;
-      return;
-    }
     const sorted = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
-    container.innerHTML = sorted.map((p) => renderPost(p, lang)).join("");
+
+    if (fullContainer) {
+      if (!sorted.length) {
+        fullContainer.innerHTML = `<p class="font-serif italic text-ink/50">${translations[lang]["blog.empty"]}</p>`;
+      } else {
+        fullContainer.innerHTML = sorted.map((p) => renderFullPost(p, lang)).join("");
+      }
+    }
+
+    if (teaserContainer) {
+      if (!sorted.length) {
+        teaserContainer.innerHTML = `<p class="font-serif italic text-ink/50">${translations[lang]["blog.empty"]}</p>`;
+      } else {
+        teaserContainer.innerHTML = sorted.slice(0, 3).map((p) => renderPostCard(p, lang, { excerpt: 140 })).join("");
+      }
+    }
   } catch (e) {
-    container.innerHTML = `<p class="blog-error">${translations[lang]["blog.error"]}</p>`;
+    if (fullContainer) fullContainer.innerHTML = `<p class="font-serif italic text-ink/50">${translations[lang]["blog.error"]}</p>`;
+    if (teaserContainer) teaserContainer.innerHTML = `<p class="font-serif italic text-ink/50">${translations[lang]["blog.error"]}</p>`;
   }
 }
 
@@ -207,21 +251,20 @@ document.addEventListener("DOMContentLoaded", () => {
   applyLang(currentLang);
   renderBlog(currentLang);
 
-  const langToggle = document.getElementById("lang-toggle");
-  if (langToggle) {
-    langToggle.addEventListener("click", () => {
+  const toggleButtons = document.querySelectorAll("#lang-toggle, .lang-toggle-mobile");
+  toggleButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
       currentLang = currentLang === "es" ? "en" : "es";
       applyLang(currentLang);
       renderBlog(currentLang);
     });
-  }
+  });
 
   document.querySelectorAll("[data-copy]").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const text = btn.getAttribute("data-copy");
       try {
         await navigator.clipboard.writeText(text);
-        showToast(translations[currentLang]["toast.copied"]);
       } catch (e) {
         const ta = document.createElement("textarea");
         ta.value = text;
@@ -229,11 +272,51 @@ document.addEventListener("DOMContentLoaded", () => {
         ta.select();
         document.execCommand("copy");
         document.body.removeChild(ta);
-        showToast(translations[currentLang]["toast.copied"]);
       }
+      showToast(translations[currentLang]["toast.copied"]);
     });
   });
 
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => {
+      const open = menu.classList.toggle("hidden") === false;
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  const header = document.getElementById("site-header");
+  if (header) {
+    const onScroll = () => {
+      if (window.scrollY > 8) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  const revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+    revealEls.forEach((el) => observer.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("is-visible"));
+  }
 });
