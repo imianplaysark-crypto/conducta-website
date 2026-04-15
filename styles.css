@@ -55,6 +55,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: 0.15em;
 }
 
+.brand span {
+  background: linear-gradient(135deg, #00C9FF 0%, #B44FD6 50%, #FF6B6B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 .brand-logo {
   height: 40px;
   width: auto;
@@ -129,6 +137,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 0.95;
   letter-spacing: -0.02em;
   margin-bottom: 1.75rem;
+  background: linear-gradient(135deg, #00C9FF 0%, #B44FD6 50%, #FF6B6B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-tag {
