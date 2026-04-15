@@ -12,7 +12,7 @@ const translations = {
     "nav.contact": "Contacto",
 
     "hero.issue": "Edición 01 · Miami · 2026",
-    "hero.headline": "La realidad no se <em>edita</em>.",
+    "hero.headline": "La calle no tiene <em>guión</em>.",
     "hero.lede": "Documentamos la realidad diaria de las personas que el mundo ignora — y convertimos cada aporte en comida, abrigo y dignidad en las calles de Miami.",
     "hero.cta": "<span>Apoya la causa</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
 
@@ -86,7 +86,7 @@ const translations = {
     "nav.contact": "Contact",
 
     "hero.issue": "Issue 01 · Miami · 2026",
-    "hero.headline": "Reality doesn't get <em>edited</em>.",
+    "hero.headline": "The street has no <em>script</em>.",
     "hero.lede": "We document the daily reality of the people the world ignores — and turn every contribution into food, shelter, and dignity on the streets of Miami.",
     "hero.cta": "<span>Support the cause</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
 

@@ -491,6 +491,32 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
+.section-header--centered {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: 1.4rem;
+}
+
+.section-header--centered .section-meta {
+  align-items: center;
+  border-top: none;
+  padding-top: 0;
+}
+
+.section-header--centered .section-meta::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--paper);
+  margin-bottom: 0.8rem;
+}
+
+.section-header--centered .section-head-body {
+  align-items: center;
+}
+
 .section-meta {
   display: flex;
   flex-direction: column;
