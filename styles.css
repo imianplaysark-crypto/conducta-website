@@ -65,7 +65,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .brand-logo {
-  height: 40px;
+  height: 36px;
   width: auto;
   display: block;
   object-fit: contain;
