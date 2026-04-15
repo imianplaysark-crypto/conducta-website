@@ -530,6 +530,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   width: 147px;
   height: 47px;
   padding: 0;
@@ -546,7 +547,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-self: flex-start;
   background: #6D1ED4;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(109, 30, 212, 0.25);
 }
 .btn-zelle:hover { background: #ffffff; color: #6D1ED4; }
 
@@ -556,6 +556,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .paypal-form input[type="image"] {
   display: block;
+  box-sizing: border-box;
+  width: 147px;
+  height: 47px;
   cursor: pointer;
   transition: opacity 0.2s;
   align-self: flex-start;
