@@ -111,25 +111,54 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .lang-toggle:hover { background: var(--black); color: var(--white); }
 .lang-toggle:hover .flag { border-color: rgba(255, 255, 255, 0.25); }
 
-@media (max-width: 760px) {
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social-links a:hover {
+  color: #6D1ED4;
+  transform: translateY(-1px);
+}
+
+.social-links svg { display: block; }
+
+@media (max-width: 860px) {
   .nav { display: none; }
   .site-header { padding: 1rem var(--pad); }
 }
 
+@media (max-width: 540px) {
+  .social-links { gap: 0.7rem; }
+}
+
 /* Hero */
 .hero {
-  min-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem var(--pad);
+  padding: clamp(3.5rem, 8vh, 5.5rem) var(--pad) clamp(3rem, 7vh, 5rem);
   background: var(--white);
   color: var(--black);
   border-bottom: 1px solid var(--black);
 }
 
-.hero-inner { max-width: 900px; }
+.hero-inner {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .hero-title {
   font-family: var(--serif);
@@ -150,8 +179,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 320px;
   max-width: 90%;
   height: auto;
-  margin: 0 auto 1.75rem;
+  margin: 0 auto 1.5rem;
 }
+
+.hero-tag { margin-top: 0; margin-bottom: 1.25rem; }
+.hero-location { margin-bottom: 1.75rem; }
 
 @media (max-width: 760px) {
   .hero-logo { width: 220px; }
@@ -538,45 +570,45 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.5;
 }
 
-.btn-zelle {
+.btn-zelle,
+.btn-paypal {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 147px;
-  height: 47px;
-  padding: 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  font-weight: 700;
+  padding: 8px 20px;
+  height: 38px;
+  font-size: 13px;
   line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-align: center;
-  transition: all 0.2s;
-  border: 1px solid #6D1ED4;
+  border: 1px solid transparent;
+  border-radius: 4px;
   cursor: pointer;
   font-family: inherit;
-  border-radius: 6px;
+  transition: all 0.2s;
   align-self: flex-start;
+}
+
+.btn-zelle {
   background: #6D1ED4;
   color: #ffffff;
+  border-color: #6D1ED4;
 }
 .btn-zelle:hover { background: #ffffff; color: #6D1ED4; }
+
+.btn-paypal {
+  background: #FFC439;
+  color: #003087;
+  border-color: #FFC439;
+}
+.btn-paypal:hover { background: #F4B819; border-color: #F4B819; }
 
 .paypal-form {
   margin-bottom: 0;
 }
-
-.paypal-form input[type="image"] {
-  display: block;
-  box-sizing: border-box;
-  width: 147px;
-  height: 47px;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  align-self: flex-start;
-}
-
-.paypal-form input[type="image"]:hover { opacity: 0.85; }
 
 @media (max-width: 700px) {
   .donate-grid { grid-template-columns: 1fr; }

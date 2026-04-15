@@ -76,7 +76,7 @@ const translations = {
     "donate.sub": "Every contribution becomes food, shelter, and smiles. The use of donations is shown in our blog section.",
     "donate.blogCta": "View Blog",
     "donate.copy": "Copy email",
-    "donate.paypal": "Go to PayPal.me",
+    "donate.paypal": "Donate with PayPal",
     "donate.paypalNote": "You can use credit/debit card, no sign in required.",
     "blog.title": "Blog",
     "blog.sub": "Stories from the streets of Miami.",
