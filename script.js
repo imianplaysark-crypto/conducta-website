@@ -12,7 +12,7 @@ const translations = {
     "nav.contact": "Contacto",
 
     "hero.issue": "Edición 01 · Miami · 2026",
-    "hero.headline": "La calle no tiene <em>guión</em>.",
+    "hero.headline": "Cada rostro tiene una <em>historia</em> que contar.",
     "hero.lede": "Documentamos la realidad diaria de las personas que el mundo ignora — y convertimos cada aporte en comida, abrigo y dignidad en las calles de Miami.",
     "hero.cta": "<span>Apoya la causa</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
 
@@ -40,7 +40,6 @@ const translations = {
     "donate.paypalNote": "Puedes usar tarjeta de crédito o débito, sin necesidad de iniciar sesión.",
     "donate.copy": "Copiar correo",
     "donate.paypal": "Donar con PayPal",
-    "donate.footnote": "Conducta es un proyecto sin fines de lucro. Cada dólar se documenta en nuestro <a href=\"blog.html\">blog</a>.",
 
     "blog.eyebrow": "Últimas historias",
     "blog.title": "Blog",
@@ -86,7 +85,7 @@ const translations = {
     "nav.contact": "Contact",
 
     "hero.issue": "Issue 01 · Miami · 2026",
-    "hero.headline": "The street has no <em>script</em>.",
+    "hero.headline": "Every face has a <em>story</em> worth telling.",
     "hero.lede": "We document the daily reality of the people the world ignores — and turn every contribution into food, shelter, and dignity on the streets of Miami.",
     "hero.cta": "<span>Support the cause</span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>",
 
@@ -114,7 +113,6 @@ const translations = {
     "donate.paypalNote": "You can use credit/debit card, no sign in required.",
     "donate.copy": "Copy email",
     "donate.paypal": "Donate with PayPal",
-    "donate.footnote": "Conducta is a nonprofit project. Every dollar is documented in our <a href=\"blog.html\">blog</a>.",
 
     "blog.eyebrow": "Latest stories",
     "blog.title": "Blog",

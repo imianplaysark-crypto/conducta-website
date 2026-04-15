@@ -833,7 +833,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
-  margin-bottom: 2.5rem;
 }
 
 .donate-card {
@@ -974,25 +973,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-paypal:active { transform: translateY(0); }
 
 .paypal-form { display: inline-block; }
-
-.donate-footnote {
-  text-align: center;
-  font-family: var(--serif);
-  font-size: 0.95rem;
-  font-style: italic;
-  color: var(--paper-mute);
-  max-width: 56ch;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.donate-footnote a {
-  color: var(--accent);
-  border-bottom: 1px solid var(--accent);
-  transition: color var(--dur-fast), border-color var(--dur-fast);
-}
-
-.donate-footnote a:hover { color: var(--paper); border-color: var(--paper); }
 
 @media (max-width: 760px) {
   .donate-grid { grid-template-columns: 1fr; }
