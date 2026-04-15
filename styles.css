@@ -1,11 +1,12 @@
 :root {
-  --black: #000000;
+  --black: #1a0b26;
+  --conducta-dark: #1a0b26;
   --white: #ffffff;
   --gray-50: #f7f7f7;
   --gray-100: #ececec;
   --gray-300: #cfcfcf;
   --gray-500: #8a8a8a;
-  --gray-800: #1a1a1a;
+  --gray-800: #2a1a36;
   --max: 1200px;
   --pad: clamp(1.25rem, 4vw, 3rem);
   --serif: "Playfair Display", Georgia, serif;
@@ -56,7 +57,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .brand span {
-  background: linear-gradient(135deg, #00C9FF 0%, #B44FD6 50%, #FF6B6B 100%);
+  background: linear-gradient(135deg, #006B8A 0%, #6B2091 50%, #A83838 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -137,7 +138,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 0.95;
   letter-spacing: -0.02em;
   margin-bottom: 1.75rem;
-  background: linear-gradient(135deg, #00C9FF 0%, #B44FD6 50%, #FF6B6B 100%);
+  background: linear-gradient(135deg, #006B8A 0%, #6B2091 50%, #A83838 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -448,7 +449,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--serif);
   font-size: 2rem;
   color: var(--gray-500);
-  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  background: linear-gradient(135deg, #2a1536 0%, #12071a 100%);
   border: 1px solid var(--gray-800);
 }
 
@@ -527,22 +528,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-zelle,
 .btn-paypal {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
+  padding: 0.95rem 2.25rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
   text-align: center;
   transition: all 0.2s;
   border: 1px solid transparent;
   cursor: pointer;
   font-family: inherit;
+  border-radius: 999px;
+  align-self: flex-start;
 }
 
 .btn-zelle {
   background: #6D1ED4;
   color: #ffffff;
   border-color: #6D1ED4;
+  box-shadow: 0 4px 12px rgba(109, 30, 212, 0.25);
 }
 .btn-zelle:hover { background: #ffffff; color: #6D1ED4; }
 
@@ -562,6 +565,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: block;
   cursor: pointer;
   transition: opacity 0.2s;
+  width: 240px;
+  height: auto;
 }
 
 .paypal-form input[type="image"]:hover { opacity: 0.85; }
