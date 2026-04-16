@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "src": "public/gallery/01.jpg",
+    "caption": null
+  },
+  {
+    "src": "public/gallery/02.jpg",
+    "caption": null
+  },
+  {
+    "src": "public/gallery/03.jpg",
+    "caption": null
+  },
+  {
+    "src": "public/gallery/04.jpg",
+    "caption": null
+  },
+  {
+    "src": "public/gallery/05.jpg",
+    "caption": null
+  }
+]
