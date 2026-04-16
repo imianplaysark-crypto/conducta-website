@@ -8,7 +8,6 @@ const translations = {
     "nav.about": "Quiénes Somos",
     "nav.images": "Imágenes",
     "nav.donate": "Donar",
-    "nav.impact": "Impacto",
     "nav.blog": "Blog",
     "nav.contact": "Contacto",
 
@@ -30,11 +29,6 @@ const translations = {
     "images.title": "Imágenes",
     "images.sub": "Momentos que documentan nuestra labor en las calles — crudos, sin montaje, sin filtro.",
     "images.empty": "Pronto compartiremos nuestras historias visuales.",
-
-    "impact.eyebrow": "Nuestro impacto",
-    "impact.meals": "comidas distribuidas",
-    "impact.people": "personas conectadas a programas",
-    "impact.donations": "donaciones recibidas",
 
     "donate.eyebrow": "Apóyanos",
     "donate.title": "Donar",
@@ -89,7 +83,6 @@ const translations = {
     "nav.about": "About",
     "nav.images": "Images",
     "nav.donate": "Donate",
-    "nav.impact": "Impact",
     "nav.blog": "Blog",
     "nav.contact": "Contact",
 
@@ -111,11 +104,6 @@ const translations = {
     "images.title": "Images",
     "images.sub": "Moments documenting our work on the streets — raw, unstaged, unfiltered.",
     "images.empty": "We will soon share our visual stories.",
-
-    "impact.eyebrow": "Our impact",
-    "impact.meals": "meals distributed",
-    "impact.people": "people connected to programs",
-    "impact.donations": "donations received",
 
     "donate.eyebrow": "Support us",
     "donate.title": "Donate",
@@ -390,54 +378,6 @@ function initSlideshow() {
     });
 }
 
-/* ============================================================
-   Impact counter — count-up on scroll
-   ============================================================ */
-
-function initImpactCounters() {
-  const counters = document.querySelectorAll(".impact-num[data-count]");
-  if (!counters.length) return;
-
-  if (!("IntersectionObserver" in window)) {
-    counters.forEach((el) => formatCounter(el, parseInt(el.dataset.count, 10)));
-    return;
-  }
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  counters.forEach((el) => io.observe(el));
-}
-
-function formatCounter(el, value) {
-  const prefix = el.dataset.prefix || "";
-  el.textContent = prefix + value.toLocaleString("en-US");
-}
-
-function animateCounter(el) {
-  const target = parseInt(el.dataset.count, 10);
-  const duration = 1800;
-  const start = performance.now();
-
-  function step(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.floor(eased * target);
-    formatCounter(el, current);
-    if (progress < 1) requestAnimationFrame(step);
-    else formatCounter(el, target);
-  }
-
-  requestAnimationFrame(step);
-}
-
 function initMobileMenu() {
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
@@ -573,7 +513,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   initSlideshow();
-  initImpactCounters();
   initMobileMenu();
   initHeaderScroll();
   initReveal();

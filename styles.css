@@ -891,67 +891,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================================
-   Impact — editorial "by the numbers" strip
-   ============================================================ */
-
-.impact-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-}
-
-.impact-stat {
-  text-align: center;
-  padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 2vw, 2rem);
-  border-right: 1px solid var(--rule);
-}
-
-.impact-stat:last-child { border-right: none; }
-
-.impact-num {
-  display: block;
-  font-family: var(--serif);
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--paper);
-  font-variant-numeric: tabular-nums;
-  margin-bottom: 0.75rem;
-}
-
-.impact-num::after {
-  content: "+";
-  font-size: 0.5em;
-  font-weight: 400;
-  color: var(--accent);
-  margin-left: 0.05em;
-}
-
-.impact-label {
-  display: block;
-  font-family: var(--sans);
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--paper-mute);
-}
-
-@media (max-width: 640px) {
-  .impact-strip {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .impact-stat {
-    border-right: none;
-    border-bottom: 1px solid var(--rule);
-    padding: 2rem 1rem;
-  }
-  .impact-stat:last-child { border-bottom: none; }
-}
-
-/* ============================================================
    Donate — editorial cards
    ============================================================ */
 
