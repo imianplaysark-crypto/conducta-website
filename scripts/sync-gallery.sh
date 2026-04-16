@@ -18,11 +18,13 @@ JPEG_QUALITY=82
 
 mkdir -p "$ARCHIVE" "$OUT" "$DROP"
 
-# Single-instance lock (release on any exit, including errors)
-exec 9>"$LOCK"
-if ! flock -n 9; then
+# Single-instance lock (atomic mkdir; cleaned on any exit). Clear stale
+# regular-file leftovers from older revisions of this script.
+[[ -f "$LOCK" ]] && rm -f "$LOCK"
+if ! mkdir "$LOCK" 2>/dev/null; then
   exit 0
 fi
+trap 'rmdir "$LOCK" 2>/dev/null || true' EXIT
 
 log() { printf '%s  %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" >> "$LOG"; }
 
