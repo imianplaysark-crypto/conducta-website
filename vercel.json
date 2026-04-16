@@ -1,4 +1,5 @@
 {
+  "buildCommand": "node build-gallery.js",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [

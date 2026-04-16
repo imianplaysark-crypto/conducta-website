@@ -28,6 +28,7 @@ const translations = {
     "images.eyebrow": "Galería",
     "images.title": "Imágenes",
     "images.sub": "Momentos que documentan nuestra labor en las calles — crudos, sin montaje, sin filtro.",
+    "images.empty": "Pronto compartiremos nuestras historias visuales.",
 
     "donate.eyebrow": "Apóyanos",
     "donate.title": "Donar",
@@ -101,6 +102,7 @@ const translations = {
     "images.eyebrow": "Gallery",
     "images.title": "Images",
     "images.sub": "Moments documenting our work on the streets — raw, unstaged, unfiltered.",
+    "images.empty": "We will soon share our visual stories.",
 
     "donate.eyebrow": "Support us",
     "donate.title": "Donate",
@@ -249,6 +251,131 @@ async function renderBlog(lang) {
   }
 }
 
+/* ============================================================
+   Slideshow
+   ============================================================ */
+
+function initSlideshow() {
+  const track = document.getElementById("slideshow-track");
+  const counter = document.getElementById("slideshow-counter");
+  const emptyEl = document.getElementById("slideshow-empty");
+  const prevBtn = document.getElementById("slideshow-prev");
+  const nextBtn = document.getElementById("slideshow-next");
+  const viewport = track ? track.closest(".slideshow-viewport") : null;
+  if (!track) return;
+
+  fetch("gallery.json")
+    .then((r) => r.ok ? r.json() : [])
+    .catch(() => [])
+    .then((slides) => {
+      if (!slides.length) {
+        if (emptyEl) emptyEl.hidden = false;
+        if (counter) counter.hidden = true;
+        if (prevBtn) prevBtn.hidden = true;
+        if (nextBtn) nextBtn.hidden = true;
+        return;
+      }
+
+      let current = 0;
+      let timer = null;
+      const INTERVAL = 5000;
+      const total = slides.length;
+
+      // Build slides
+      slides.forEach((s, i) => {
+        const fig = document.createElement("figure");
+        fig.className = "slideshow-slide" + (i === 0 ? " active" : "");
+        fig.setAttribute("aria-hidden", i === 0 ? "false" : "true");
+
+        const img = document.createElement("img");
+        img.alt = s.caption || "";
+        img.loading = i <= 1 ? "eager" : "lazy";
+        img.src = s.src;
+        fig.appendChild(img);
+
+        if (s.caption) {
+          const cap = document.createElement("figcaption");
+          cap.textContent = s.caption;
+          fig.appendChild(cap);
+        }
+
+        track.appendChild(fig);
+      });
+
+      function updateCounter() {
+        if (counter) {
+          const cur = String(current + 1).padStart(2, "0");
+          const tot = String(total).padStart(2, "0");
+          counter.textContent = cur + " / " + tot;
+        }
+      }
+
+      function goTo(idx) {
+        const slideEls = track.querySelectorAll(".slideshow-slide");
+        slideEls[current].classList.remove("active");
+        slideEls[current].setAttribute("aria-hidden", "true");
+        current = ((idx % total) + total) % total;
+        slideEls[current].classList.add("active");
+        slideEls[current].setAttribute("aria-hidden", "false");
+        updateCounter();
+
+        // Preload next image
+        const nextIdx = (current + 1) % total;
+        const nextImg = slideEls[nextIdx].querySelector("img");
+        if (nextImg && nextImg.loading === "lazy") {
+          nextImg.loading = "eager";
+        }
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      function startTimer() {
+        stopTimer();
+        timer = setInterval(next, INTERVAL);
+      }
+
+      function stopTimer() {
+        if (timer) { clearInterval(timer); timer = null; }
+      }
+
+      updateCounter();
+      startTimer();
+
+      if (prevBtn) prevBtn.addEventListener("click", () => { prev(); startTimer(); });
+      if (nextBtn) nextBtn.addEventListener("click", () => { next(); startTimer(); });
+
+      // Pause on hover
+      if (viewport) {
+        viewport.addEventListener("mouseenter", stopTimer);
+        viewport.addEventListener("mouseleave", startTimer);
+      }
+
+      // Swipe on mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      if (viewport) {
+        viewport.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        viewport.addEventListener("touchend", (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) next(); else prev();
+            startTimer();
+          }
+        }, { passive: true });
+      }
+
+      // Keyboard
+      track.closest(".slideshow").addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") { prev(); startTimer(); }
+        if (e.key === "ArrowRight") { next(); startTimer(); }
+      });
+    });
+}
+
 function initMobileMenu() {
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
@@ -383,6 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  initSlideshow();
   initMobileMenu();
   initHeaderScroll();
   initReveal();

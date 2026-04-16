@@ -171,13 +171,26 @@
           </div>
         </header>
 
-        <div class="image-grid reveal">
-          <figure class="img-tile"><div class="img-placeholder">01</div></figure>
-          <figure class="img-tile"><div class="img-placeholder">02</div></figure>
-          <figure class="img-tile"><div class="img-placeholder">03</div></figure>
-          <figure class="img-tile"><div class="img-placeholder">04</div></figure>
-          <figure class="img-tile"><div class="img-placeholder">05</div></figure>
-          <figure class="img-tile"><div class="img-placeholder">06</div></figure>
+        <div class="slideshow reveal" id="slideshow" aria-roledescription="carousel" aria-label="Gallery">
+          <div class="slideshow-viewport">
+            <div class="slideshow-track" id="slideshow-track">
+              <!-- slides injected by JS from gallery.json -->
+            </div>
+            <div class="slideshow-empty" id="slideshow-empty" hidden>
+              <span class="slideshow-empty-label" data-i18n="images.empty">Pronto compartiremos nuestras historias visuales.</span>
+            </div>
+          </div>
+          <div class="slideshow-controls">
+            <span class="slideshow-counter" id="slideshow-counter" aria-live="polite"></span>
+            <div class="slideshow-nav">
+              <button class="slideshow-btn" id="slideshow-prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="slideshow-btn" id="slideshow-next" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
