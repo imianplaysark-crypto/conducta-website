@@ -288,6 +288,17 @@ function initHeaderScroll() {
 function initReveal() {
   const els = document.querySelectorAll(".reveal");
   if (!els.length) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reducedMotion) {
+    document.querySelectorAll(".section, .hero").forEach((section) => {
+      section.querySelectorAll(".reveal").forEach((el, i) => {
+        el.style.transitionDelay = i * 100 + "ms";
+      });
+    });
+  }
+
   if (!("IntersectionObserver" in window)) {
     els.forEach((el) => el.classList.add("in"));
     return;
@@ -301,6 +312,40 @@ function initReveal() {
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
   els.forEach((el) => io.observe(el));
+}
+
+function initParallax() {
+  const heroLogo = document.querySelector(".hero-logo");
+  if (!heroLogo || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  heroLogo.classList.add("parallax-target");
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        heroLogo.style.transform = "translateY(" + (y * 0.12) + "px)";
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+function initActiveNav() {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav a[href^='#']");
+  if (!sections.length || !navLinks.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach((a) => {
+          a.classList.toggle("nav-active", a.getAttribute("href") === "#" + id);
+        });
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "-96px 0px -40% 0px" });
+  sections.forEach((s) => io.observe(s));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -341,4 +386,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initHeaderScroll();
   initReveal();
+  initParallax();
+  initActiveNav();
 });

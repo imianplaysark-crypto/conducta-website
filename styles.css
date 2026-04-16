@@ -92,6 +92,8 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: "kern" 1;
   overflow-x: hidden;              /* UX #69 */
   min-height: 100dvh;              /* UX #20 — dvh for mobile */
 }
@@ -205,12 +207,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
 }
 
-.nav a:hover { color: var(--paper); }
-
-.nav a.nav-active {                 /* UX #3 active state */
-  color: var(--paper);
-}
-.nav a.nav-active::after {
+.nav a::after {
   content: "";
   position: absolute;
   left: 0.95rem;
@@ -218,7 +215,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   bottom: 0.4rem;
   height: 1px;
   background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease);
 }
+
+.nav a:hover { color: var(--paper); }
+.nav a:hover::after { transform: scaleX(1); }
+
+.nav a.nav-active { color: var(--paper); }    /* UX #3 active state */
+.nav a.nav-active::after { transform: scaleX(1); }
 
 .header-right {
   display: flex;
@@ -466,7 +472,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    ============================================================ */
 
 .section {
-  padding: clamp(5rem, 10vw, 9rem) var(--pad);
+  padding: clamp(6rem, 12vw, 11rem) var(--pad);
   position: relative;
 }
 
@@ -554,7 +560,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-weight: 600;
   font-size: clamp(2.4rem, 5.4vw, 4.4rem);
   line-height: 1.02;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   color: var(--paper);
 }
 
@@ -592,7 +598,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 3.5rem;
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
@@ -629,10 +635,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--serif);
   font-optical-sizing: auto;
   font-weight: 500;
-  font-size: clamp(2.4rem, 6vw, 5rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  max-width: 28ch;
+  font-size: clamp(2.8rem, 7vw, 5.8rem);
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  max-width: 24ch;
   color: var(--paper);
 }
 
@@ -647,7 +653,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--serif);
   font-size: clamp(1.1rem, 1.6vw, 1.35rem);
   line-height: 1.55;
-  max-width: 58ch;
+  max-width: 54ch;
   color: var(--paper-dim);
   font-weight: 400;
 }
@@ -683,10 +689,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .manifesto-lead::first-letter {
   font-family: var(--serif);
-  font-size: 5.4em;
+  font-size: 5.8em;
   float: left;
-  line-height: 0.82;
-  padding: 0.04em 0.1em 0 0;
+  line-height: 0.78;
+  padding: 0.06em 0.12em 0 0;
   color: var(--accent);
   font-weight: 700;
 }
@@ -1020,11 +1026,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   bottom: 0;
   height: 1px;
   background: var(--accent);
-  transform-origin: center;
-  transition: transform var(--dur) var(--ease);
+  transform: scaleX(0.4);
+  transform-origin: left;
+  transition: transform 400ms var(--ease);
 }
 
 .contact-email:hover { color: var(--accent); }
+.contact-email:hover::after { transform: scaleX(1); }
 
 /* ============================================================
    Footer — editorial masthead
@@ -1360,16 +1368,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+  transform: translateY(28px);
+  transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out);
   will-change: opacity, transform;
 }
 
 .reveal.in { opacity: 1; transform: translateY(0); }
 
+/* Parallax helper — JS sets transform, CSS transitions are disabled */
+.parallax-target {
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal { opacity: 1; transform: none; transition: none; transition-delay: 0ms !important; }
+  .parallax-target { transform: none !important; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
