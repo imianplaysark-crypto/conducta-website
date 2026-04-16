@@ -76,6 +76,7 @@ const translations = {
     "footer.connect": "Conecta",
     "footer.tag": "Sin filtro. Sin guión.",
     "footer.longTag": "Una voz para las personas que el mundo prefiere no ver. Miami, Florida.",
+    "footer.ein": "Conducta es una organización sin fines de lucro registrada en Florida. EIN: [TODO]",
     "footer.colophon": "Compuesto en Newsreader e Inter. Sin filtro, sin guión.",
 
     "toast.copied": "Correo copiado",
@@ -156,6 +157,7 @@ const translations = {
     "footer.connect": "Connect",
     "footer.tag": "Unfiltered. Unscripted.",
     "footer.longTag": "A voice for the people the world prefers not to see. Miami, Florida.",
+    "footer.ein": "Conducta is a registered nonprofit in Florida. EIN: [TODO]",
     "footer.colophon": "Set in Newsreader & Inter. Unfiltered, unscripted.",
 
     "toast.copied": "Email copied",
