@@ -6,7 +6,7 @@
 
 set -euo pipefail
 
-REPO="/Users/darenmesa/Documents/Conducta/conducta-website"
+REPO="/Users/darenmesa/conducta-website"
 DROP="$REPO/gallery-drop"
 ARCHIVE="$DROP/_archive"
 OUT="$REPO/public/gallery"

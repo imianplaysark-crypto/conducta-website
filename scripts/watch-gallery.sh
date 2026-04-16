@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-REPO="/Users/darenmesa/Documents/Conducta/conducta-website"
+REPO="/Users/darenmesa/conducta-website"
 DROP="$REPO/gallery-drop"
 SYNC="$REPO/scripts/sync-gallery.sh"
 
