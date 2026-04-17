@@ -290,6 +290,7 @@ function initSlideshow() {
         fig.setAttribute("aria-hidden", i === 0 ? "false" : "true");
 
         const img = document.createElement("img");
+        img.className = "slideshow-image";
         img.alt = s.caption || "";
         img.loading = i <= 1 ? "eager" : "lazy";
         img.src = s.src;
@@ -312,6 +313,20 @@ function initSlideshow() {
         }
       }
 
+      function applyRatio(imgEl) {
+        if (!viewport || !imgEl) return;
+        const set = () => {
+          if (imgEl.naturalWidth && imgEl.naturalHeight) {
+            viewport.style.setProperty(
+              "--active-ratio",
+              imgEl.naturalWidth + " / " + imgEl.naturalHeight
+            );
+          }
+        };
+        if (imgEl.complete) set();
+        else imgEl.addEventListener("load", set, { once: true });
+      }
+
       function goTo(idx) {
         const slideEls = track.querySelectorAll(".slideshow-slide");
         slideEls[current].classList.remove("active");
@@ -320,6 +335,7 @@ function initSlideshow() {
         slideEls[current].classList.add("active");
         slideEls[current].setAttribute("aria-hidden", "false");
         updateCounter();
+        applyRatio(slideEls[current].querySelector(".slideshow-image"));
 
         // Preload next image
         const nextIdx = (current + 1) % total;
@@ -342,6 +358,7 @@ function initSlideshow() {
       }
 
       updateCounter();
+      applyRatio(track.querySelector(".slideshow-slide.active .slideshow-image"));
       startTimer();
 
       if (prevBtn) prevBtn.addEventListener("click", () => { prev(); startTimer(); });
