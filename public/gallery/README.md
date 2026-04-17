@@ -21,6 +21,19 @@ Use descriptive, kebab-case filenames: `overtown-distribution-march-2026.jpg`
 
 Images are sorted alphabetically by filename in the slideshow.
 
+## Rejecting an image
+
+If an image doesn't fit the slideshow well (awkward aspect ratio, bad
+crop on mobile, off-brand, etc.), move it into `rejected/`:
+
+```
+mv public/gallery/03.jpg public/gallery/rejected/03.jpg
+node build-gallery.js
+```
+
+Subfolders are excluded from the manifest automatically. Move it back
+up and rebuild to restore.
+
 ## Notes
 
 - No build step required — drop files, push, Vercel redeploys automatically.

@@ -6,7 +6,7 @@
 
 set -euo pipefail
 
-REPO="/Users/darenmesa/conducta-website"
+REPO="/Users/darenmesa/Documents/Conducta"
 DROP="$REPO/gallery-drop"
 ARCHIVE="$DROP/_archive"
 OUT="$REPO/public/gallery"
@@ -52,7 +52,8 @@ next=1
 shopt -s nullglob
 existing=("$OUT"/[0-9][0-9].jpg)
 if [[ ${#existing[@]} -gt 0 ]]; then
-  last_name=$(basename "${existing[-1]}" .jpg)
+  last_idx=$((${#existing[@]} - 1))
+  last_name=$(basename "${existing[$last_idx]}" .jpg)
   next=$((10#$last_name + 1))
 fi
 shopt -u nullglob
