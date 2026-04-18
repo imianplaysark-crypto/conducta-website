@@ -1,5 +1,8 @@
 # Conducta DADE — Project Brief for Claude Code
 
+## Sister services
+- **Cuba breaking-news alert system** — separate backend that watches 13 RSS feeds, classifies with Haiku, and sends a ready-to-paste Spanish @conductadade social caption via Pushover Emergency alert. **Not part of this repo.** See `CUBA_ALERTS.md` in this folder for full brief; lives at `/Users/darenmesa/cuba-alerts` and `github.com/imianplaysark-crypto/cuba-alerts`.
+
 ## What this is
 Conducta is a Miami-based nonprofit (501(c)(3) pending) documenting and supporting unhoused/vulnerable populations through direct food/clothing distribution and unfiltered photojournalism. The site (conductadade.com) is the public-facing home: mission, gallery, donations, blog, contact.
 
